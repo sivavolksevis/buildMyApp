@@ -12,5 +12,7 @@ public class MemberProfileController {
 
 	@Autowired
 	MemberProfileHelper memberProfileHelper;
+	
+	
 
 }
