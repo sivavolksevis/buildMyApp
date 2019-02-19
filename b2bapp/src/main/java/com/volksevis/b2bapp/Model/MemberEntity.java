@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class MemberEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MEMBERID", nullable = false)
 	private long memberId;
 	@Column(name = "MOBILENUMBER", nullable = false)

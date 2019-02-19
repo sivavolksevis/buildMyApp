@@ -9,4 +9,10 @@ public interface IMemberProfileDAO {
 	 */
 	public void saveMemberEntityObject(MemberEntity memberEntity);
 
+	/**
+	 * @param mobile
+	 * @return
+	 */
+	public MemberEntity findByMobileNumber(String mobile);
+
 }

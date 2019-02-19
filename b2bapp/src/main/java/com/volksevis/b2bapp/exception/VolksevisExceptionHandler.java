@@ -19,7 +19,7 @@ public class VolksevisExceptionHandler {
 		ErrorResponseEntity error = new ErrorResponseEntity();
 		error.setSuccess(false);
 		error.setStatusCode(HttpStatus.NOT_FOUND.value());
-		error.setError("Contact Admin for further action");
+		error.setError(exception.getMessage());
 		MultiValueMap<String, String> errorResponseMessage = new LinkedMultiValueMap<>();
 		errorResponseMessage.add("errorMessage", exception.getMessage());
 		return new ResponseEntity<ErrorResponseEntity>(error, errorResponseMessage, HttpStatus.NOT_FOUND);
@@ -30,7 +30,7 @@ public class VolksevisExceptionHandler {
 		ErrorResponseEntity error = new ErrorResponseEntity();
 		error.setSuccess(false);
 		error.setStatusCode(HttpStatus.NOT_FOUND.value());
-		error.setError("Contact Admin for further action");
+		error.setError(exception.getMessage());
 		MultiValueMap<String, String> errorResponseMessage = new LinkedMultiValueMap<>();
 		errorResponseMessage.add("errorMessage", exception.getMessage());
 		return new ResponseEntity<ErrorResponseEntity>(error, errorResponseMessage, HttpStatus.INTERNAL_SERVER_ERROR);

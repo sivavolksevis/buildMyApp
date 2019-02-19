@@ -17,4 +17,9 @@ public class MemberProfileDAO implements IMemberProfileDAO {
 		memberRepository.save(memberEntity);
 	}
 
+	@Override
+	public MemberEntity findByMobileNumber(String mobile) {
+		return memberRepository.findByMobileNumber(mobile);
+	}
+
 }
