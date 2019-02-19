@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volksevis.b2bapp.Model.MemberEntity;
 import com.volksevis.b2bapp.controller.MemberProfileController;
 import com.volksevis.b2bapp.dao.IMemberProfileDAO;
+import com.volksevis.b2bapp.exception.MemberNotFoundException;
 import com.volksevis.b2bapp.exception.MemberProfileException;
 import com.volksevis.b2bapp.util.ICommunicationUtility;
 
@@ -52,6 +53,38 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 		} catch (Exception exception) {
 			log.error("MemberProfileException : " + exception.getMessage());
 			throw new MemberProfileException(exception.getMessage());
+		}
+		return responsObject;
+	}
+
+	@Override
+	public JSONObject validateOTP(String requestString) throws MemberNotFoundException {
+		log.info("In validateOTP method in" + this.getClass());
+		JSONObject responsObject = null;
+		try {
+			JSONObject requestObject = new JSONObject(requestString);
+			String mobile = requestObject.getString("mobileNumber");
+			String otp = requestObject.getString("otp");
+			if (mobile != null) {
+				MemberEntity memberEntity = memberProfileDAO.findByMobileNumber(mobile);
+				if (otp != null && memberEntity != null && memberEntity.getOtp().equalsIgnoreCase(otp)) {
+					responsObject = new JSONObject();
+					responsObject.put("success", true);
+					responsObject.put("statusCode", 200);
+					JSONObject response = new JSONObject();
+					response.put("message", "Valid Member");
+					responsObject.put("response", response);
+				} else {
+					log.error("MemberNotFoundException : Invalid OTP ");
+					throw new MemberNotFoundException("Invalid OTP ");
+				}
+			} else {
+				log.error("MemberNotFoundException : Invalid Mobile  Number ");
+				throw new MemberNotFoundException("Invalid Mobile  Number ");
+			}
+		} catch (Exception exception) {
+			log.error("MemberNotFoundException : " + exception.getMessage());
+			throw new MemberNotFoundException(exception.getMessage());
 		}
 		return responsObject;
 	}

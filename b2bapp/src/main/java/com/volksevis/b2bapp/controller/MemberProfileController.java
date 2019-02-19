@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.volksevis.b2bapp.exception.MemberNotFoundException;
 import com.volksevis.b2bapp.exception.MemberProfileException;
 import com.volksevis.b2bapp.helper.MemberProfileHelper;
 import com.volksevis.b2bapp.service.IMemberProfileService;
@@ -32,6 +33,14 @@ public class MemberProfileController {
 			throws MemberProfileException {
 		log.info("In memberRegistration method in" + this.getClass());
 		JSONObject response = memberProfileService.memberRegistration(mobileNumber);
+		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+	}
+
+	@PostMapping("/validateOTP")
+	public ResponseEntity<String> validateOTP(@RequestBody(required = true) String requestObject)
+			throws MemberProfileException, MemberNotFoundException {
+		log.info("In validateOTP method in" + this.getClass());
+		JSONObject response = memberProfileService.validateOTP(requestObject);
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
 

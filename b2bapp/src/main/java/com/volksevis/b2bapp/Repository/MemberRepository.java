@@ -7,5 +7,8 @@ import com.volksevis.b2bapp.Model.MemberEntity;
 
 @Repository
 public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
+	
+	
+	public MemberEntity findByMobileNumber(String mobile);
 
 }
