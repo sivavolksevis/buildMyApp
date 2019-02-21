@@ -22,4 +22,10 @@ public interface IMemberProfileService {
 	 */
 	public JSONObject validateOTP(String requestObject) throws MemberNotFoundException;
 
+	/**
+	 * @return JSONObject
+	 * @throws MemberNotFoundException
+	 */
+	public JSONObject getCities() throws MemberProfileException;
+
 }

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +42,13 @@ public class MemberProfileController {
 			throws MemberProfileException, MemberNotFoundException {
 		log.info("In validateOTP method in" + this.getClass());
 		JSONObject response = memberProfileService.validateOTP(requestObject);
+		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+	}
+
+	@GetMapping("/getCities")
+	public ResponseEntity<String> getCities() throws MemberProfileException {
+		log.info("In getCities method in" + this.getClass());
+		JSONObject response = memberProfileService.getCities();
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
 
