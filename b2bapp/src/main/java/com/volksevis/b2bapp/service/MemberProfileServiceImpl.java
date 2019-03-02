@@ -45,6 +45,7 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 				throw new MemberProfileException("Failed to send OTP please try again");
 			}
 			MemberEntity memberEntity = new MemberEntity();
+			memberEntity.setMemberId(Long.valueOf(RandomStringUtils.randomNumeric(6)));
 			memberEntity.setMobileNumber(mobileNumber);
 			memberEntity.setOtp(otp);
 			memberProfileDAO.saveMemberEntityObject(memberEntity);

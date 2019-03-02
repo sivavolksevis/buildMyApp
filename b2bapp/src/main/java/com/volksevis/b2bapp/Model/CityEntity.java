@@ -1,24 +1,33 @@
 package com.volksevis.b2bapp.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "CITY", schema = "VOLKSEVIS")
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true, allowGetters = true)
+@Document(collection = "Cities")
 public class CityEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "CITYID", nullable = false)
+	@Field(value = "_id")
+	private String id;
+	@Field(value = "cityId")
 	private long cityId;
-	@Column(name = "CITYNAME", nullable = false)
+	@Field(value = "cityName")
 	private String cityName;
-	@Column(name = "ACTIVE", nullable = false)
+	@Field(value = "active")
 	private String active;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public long getCityId() {
 		return cityId;
