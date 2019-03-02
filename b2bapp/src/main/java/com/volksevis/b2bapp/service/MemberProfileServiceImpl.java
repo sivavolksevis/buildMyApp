@@ -1,6 +1,9 @@
 package com.volksevis.b2bapp.service;
 
+import java.util.List;
+
 import org.apache.commons.lang3.RandomStringUtils;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.volksevis.b2bapp.Model.CityEntity;
 import com.volksevis.b2bapp.Model.MemberEntity;
 import com.volksevis.b2bapp.controller.MemberProfileController;
 import com.volksevis.b2bapp.dao.IMemberProfileDAO;
@@ -85,6 +89,25 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 		} catch (Exception exception) {
 			log.error("MemberNotFoundException : " + exception.getMessage());
 			throw new MemberNotFoundException(exception.getMessage());
+		}
+		return responsObject;
+	}
+
+	@Override
+	public JSONObject getCities() throws MemberProfileException {
+		JSONObject responsObject = null;
+		try {
+			List<CityEntity> cities = memberProfileDAO.getCities();
+			responsObject = new JSONObject();
+			responsObject.put("success", true);
+			responsObject.put("statusCode", 200);
+			JSONObject response = new JSONObject();
+			response.put("message", "Valid Member");
+			String citiesString = objectMapper.writeValueAsString(cities);
+			responsObject.put("response", new JSONArray(citiesString));
+		} catch (Exception exception) {
+			log.error("MemberProfileException : " + exception.getMessage());
+			throw new MemberProfileException(exception.getMessage());
 		}
 		return responsObject;
 	}
