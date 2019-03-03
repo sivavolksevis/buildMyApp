@@ -1,28 +1,39 @@
 package com.volksevis.b2bapp.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "MEMBER", schema = "VOLKSEVIS")
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true, allowGetters = true)
+@Document(collection = "Members")
 public class MemberEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "MEMBERID", nullable = false)
+	@Field(value = "_id")
+	private String id;
+	@Field(value = "memberId")
 	private long memberId;
-	@Column(name = "MOBILENUMBER", nullable = false)
+	@Field(value = "mobileNumber")
 	private String mobileNumber;
-	@Column(name = "OTP", nullable = false)
+	@Field(value = "otp")
 	private String otp;
+	@Field(value = "firstName")
 	private String firstName;
+	@Field(value = "lastName")
 	private String lastName;
-	@Column(name = "STATUS", nullable = false)
+	@Field(value = "active")
 	private boolean active;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public long getMemberId() {
 		return memberId;

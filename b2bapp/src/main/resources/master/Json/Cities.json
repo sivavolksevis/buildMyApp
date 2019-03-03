@@ -1,0 +1,26 @@
+{
+	"cityId": 1,
+	"cityName": "Hyderabad",
+	"active": "1"
+}
+{
+	"cityId" : 2,
+	"cityName" : "Banglore",
+	"active" : "1"
+}
+{
+	"cityId" : 3,
+	"cityName" : "Vishakapatnam",
+	"active" : "1"
+}
+{
+	"cityId" : 4,
+	"cityName" : "Vijayawada",
+	"active" : "1"
+}
+{
+	"cityId" : 5,
+	"cityName" : "Guntur",
+	"active" : "1"
+}
+
