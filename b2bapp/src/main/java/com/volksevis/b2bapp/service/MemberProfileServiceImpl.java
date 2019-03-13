@@ -39,7 +39,8 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 		JSONObject responsObject = null;
 		try {
 			String otp = RandomStringUtils.randomNumeric(4);
-			boolean isSMSsent = communicationUtility.sendTextMessage(mobileNumber, otp);
+			String message = "Your OTP for B2B app login is :" + otp;
+			boolean isSMSsent = communicationUtility.sendTextMessage(message, mobileNumber);
 			if (!isSMSsent) {
 				log.error("Failed to send OTP please try again");
 				throw new MemberProfileException("Failed to send OTP please try again");
