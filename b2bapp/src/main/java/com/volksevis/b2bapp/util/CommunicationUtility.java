@@ -32,10 +32,11 @@ public class CommunicationUtility implements ICommunicationUtility {
 		try {
 			configureHTTPURLConnection();
 			StringBuilder result = new StringBuilder();
+			String smsThirdPartyURL = "https://sms.movesms.co.ke/api/compose?";
 			String encodedMessage = URLEncoder.encode(message, "UTF-8");
-			String smsThirdPartyURL = "https://sms.movesms.co.ke/api/compose?username=volksevis&api_key=EuSO7gLoPtAG339kQTVosJg417zspPo6rDmspSacXUMKQ9A5r7&sender=SMARTLINK&to="
+			String urlParameters = "username=volksevis&api_key=EuSO7gLoPtAG339kQTVosJg417zspPo6rDmspSacXUMKQ9A5r7&sender=SMARTLINK&to="
 					+ phoneNumber + "&message=" + encodedMessage + "&msgtype=5&dlr=0";
-			URL urlObject = new URL(smsThirdPartyURL);
+			URL urlObject = new URL(smsThirdPartyURL + urlParameters);
 			HttpURLConnection connection = (HttpURLConnection) urlObject.openConnection();
 			connection.setRequestMethod("GET");
 			BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()));
