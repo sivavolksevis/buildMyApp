@@ -7,5 +7,5 @@ public interface ICommunicationUtility {
 	 * @param otp
 	 * @return boolean
 	 */
-	public boolean sendTextMessage(String mobileNumber, String otp);
+	public boolean sendTextMessage(String message, String phoneNumber);
 }

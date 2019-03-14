@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,13 +34,17 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 	@Autowired
 	ICommunicationUtility communicationUtility;
 
+	@Value("volksevis.otp.message")
+	private String OTP_MESSAGE_BODY;
+
 	@Override
 	public JSONObject memberRegistration(String mobileNumber) throws MemberProfileException {
 		log.info("In memberRegistration method in" + this.getClass());
 		JSONObject responsObject = null;
 		try {
 			String otp = RandomStringUtils.randomNumeric(4);
-			boolean isSMSsent = communicationUtility.sendTextMessage(mobileNumber, otp);
+			String message = OTP_MESSAGE_BODY + otp;
+			boolean isSMSsent = communicationUtility.sendTextMessage(message, mobileNumber);
 			if (!isSMSsent) {
 				log.error("Failed to send OTP please try again");
 				throw new MemberProfileException("Failed to send OTP please try again");
