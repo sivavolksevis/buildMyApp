@@ -2,7 +2,7 @@ package com.volksevis.b2bapp.Model;
 
 public class SubServiceDetail {
 
-	private String subServiceId;
+	private Long subServiceId;
 	private String subServiceName;
 	private String price;
 
@@ -22,11 +22,11 @@ public class SubServiceDetail {
 		this.price = price;
 	}
 
-	public String getSubServiceId() {
+	public Long getSubServiceId() {
 		return subServiceId;
 	}
 
-	public void setSubServiceId(String subServiceId) {
+	public void setSubServiceId(Long subServiceId) {
 		this.subServiceId = subServiceId;
 	}
 

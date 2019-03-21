@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import com.volksevis.b2bapp.exception.MemberNotFoundException;
 import com.volksevis.b2bapp.exception.MemberProfileException;
+import com.volksevis.b2bapp.exception.VolksevisException;
 
 public interface IMemberProfileService {
 
@@ -27,5 +28,11 @@ public interface IMemberProfileService {
 	 * @throws MemberNotFoundException
 	 */
 	public JSONObject getCities() throws MemberProfileException;
+
+	/**
+	 * @return JSONObject
+	 * @throws VolksevisException
+	 */
+	public JSONObject getServices() throws VolksevisException;
 
 }

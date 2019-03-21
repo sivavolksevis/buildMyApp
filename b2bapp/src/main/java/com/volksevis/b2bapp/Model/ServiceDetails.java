@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ServiceDetails {
 
-	private String serviceId;
+	private Long serviceId;
 	private String serviveName;
 	private List<SubServiceDetail> subServices;
 
@@ -24,11 +24,11 @@ public class ServiceDetails {
 		this.subServices = subServices;
 	}
 
-	public String getServiceId() {
+	public Long getServiceId() {
 		return serviceId;
 	}
 
-	public void setServiceId(String serviceId) {
+	public void setServiceId(Long serviceId) {
 		this.serviceId = serviceId;
 	}
 

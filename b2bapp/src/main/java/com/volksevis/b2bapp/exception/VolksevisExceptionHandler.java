@@ -25,7 +25,7 @@ public class VolksevisExceptionHandler {
 		return new ResponseEntity<ErrorResponseEntity>(error, errorResponseMessage, HttpStatus.NOT_FOUND);
 	}
 
-	@ExceptionHandler({ MemberProfileException.class })
+	@ExceptionHandler({ MemberProfileException.class, VolksevisException.class })
 	public ResponseEntity<ErrorResponseEntity> exceptionMemberProfileHandler(Exception exception) {
 		ErrorResponseEntity error = new ErrorResponseEntity();
 		error.setSuccess(false);

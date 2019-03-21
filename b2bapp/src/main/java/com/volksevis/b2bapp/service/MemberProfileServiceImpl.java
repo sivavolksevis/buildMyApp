@@ -14,10 +14,12 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volksevis.b2bapp.Model.CityEntity;
 import com.volksevis.b2bapp.Model.MemberEntity;
+import com.volksevis.b2bapp.Model.ServicesEntity;
 import com.volksevis.b2bapp.controller.MemberProfileController;
 import com.volksevis.b2bapp.dao.IMemberProfileDAO;
 import com.volksevis.b2bapp.exception.MemberNotFoundException;
 import com.volksevis.b2bapp.exception.MemberProfileException;
+import com.volksevis.b2bapp.exception.VolksevisException;
 import com.volksevis.b2bapp.util.ICommunicationUtility;
 
 @Service
@@ -39,14 +41,13 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 
 	@Override
 	public JSONObject memberRegistration(String mobileNumber) throws MemberProfileException {
-		log.info("In memberRegistration method in" + this.getClass());
+		log.info("In memberRegistration method Started");
 		JSONObject responsObject = null;
 		try {
 			String otp = RandomStringUtils.randomNumeric(4);
 			String message = OTP_MESSAGE_BODY + otp;
 			boolean isSMSsent = communicationUtility.sendTextMessage(message, mobileNumber);
 			if (!isSMSsent) {
-				log.error("Failed to send OTP please try again");
 				throw new MemberProfileException("Failed to send OTP please try again");
 			}
 			MemberEntity memberEntity = new MemberEntity();
@@ -61,15 +62,15 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 			response.put("OTP", otp);
 			responsObject.put("response", response);
 		} catch (Exception exception) {
-			log.error("MemberProfileException : " + exception.getMessage());
 			throw new MemberProfileException(exception.getMessage());
 		}
+		log.info("In memberRegistration method Ended");
 		return responsObject;
 	}
 
 	@Override
 	public JSONObject validateOTP(String requestString) throws MemberNotFoundException {
-		log.info("In validateOTP method in" + this.getClass());
+		log.info("In validateOTP method Started");
 		JSONObject responsObject = null;
 		try {
 			JSONObject requestObject = new JSONObject(requestString);
@@ -85,22 +86,21 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 					response.put("message", "Valid Member");
 					responsObject.put("response", response);
 				} else {
-					log.error("MemberNotFoundException : Invalid OTP ");
 					throw new MemberNotFoundException("Invalid OTP ");
 				}
 			} else {
-				log.error("MemberNotFoundException : Invalid Mobile  Number ");
 				throw new MemberNotFoundException("Invalid Mobile  Number ");
 			}
 		} catch (Exception exception) {
-			log.error("MemberNotFoundException : " + exception.getMessage());
 			throw new MemberNotFoundException(exception.getMessage());
 		}
+		log.info("In validateOTP method Ended");
 		return responsObject;
 	}
 
 	@Override
 	public JSONObject getCities() throws MemberProfileException {
+		log.info("In getCities method Started");
 		JSONObject responsObject = null;
 		try {
 			List<CityEntity> cities = memberProfileDAO.getCities();
@@ -115,6 +115,27 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 			log.error("MemberProfileException : " + exception.getMessage());
 			throw new MemberProfileException(exception.getMessage());
 		}
+		log.info("In getCities method Ended");
+		return responsObject;
+	}
+
+	@Override
+	public JSONObject getServices() throws VolksevisException {
+		log.info("In getCities method Started");
+		JSONObject responsObject = null;
+		try {
+			List<ServicesEntity> cities = memberProfileDAO.getServices();
+			responsObject = new JSONObject();
+			responsObject.put("success", true);
+			responsObject.put("statusCode", 200);
+			JSONObject response = new JSONObject();
+			response.put("message", "Valid Request");
+			String citiesString = objectMapper.writeValueAsString(cities);
+			responsObject.put("response", new JSONArray(citiesString));
+		} catch (Exception exception) {
+			throw new VolksevisException(exception.getMessage());
+		}
+		log.info("In getCities method Ended");
 		return responsObject;
 	}
 
