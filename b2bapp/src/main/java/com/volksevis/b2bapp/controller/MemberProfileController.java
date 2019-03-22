@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.volksevis.b2bapp.exception.MemberNotFoundException;
 import com.volksevis.b2bapp.exception.MemberProfileException;
+import com.volksevis.b2bapp.exception.VolksevisException;
 import com.volksevis.b2bapp.helper.MemberProfileHelper;
 import com.volksevis.b2bapp.service.IMemberProfileService;
 
@@ -32,7 +33,7 @@ public class MemberProfileController {
 	@PostMapping("/member-registration")
 	public ResponseEntity<String> memberRegistration(@RequestBody(required = true) String mobileNumber)
 			throws MemberProfileException {
-		log.info("In memberRegistration method in" + this.getClass());
+		log.info("In memberRegistration method ");
 		JSONObject response = memberProfileService.memberRegistration(mobileNumber);
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
@@ -40,16 +41,22 @@ public class MemberProfileController {
 	@PostMapping("/validateOTP")
 	public ResponseEntity<String> validateOTP(@RequestBody(required = true) String requestObject)
 			throws MemberProfileException, MemberNotFoundException {
-		log.info("In validateOTP method in" + this.getClass());
+		log.info("In validateOTP method ");
 		JSONObject response = memberProfileService.validateOTP(requestObject);
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
 
 	@GetMapping("/getCities")
 	public ResponseEntity<String> getCities() throws MemberProfileException {
-		log.info("In getCities method in" + this.getClass());
+		log.info("In getCities method ");
 		JSONObject response = memberProfileService.getCities();
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
 
+	@GetMapping("/getServices")
+	public ResponseEntity<String> getServices() throws VolksevisException {
+		log.info("In getServices method ");
+		JSONObject response = memberProfileService.getServices();
+		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+	}
 }

@@ -1,0 +1,1654 @@
+{
+	"categoryId": 1,
+	"categoryName": "Home Maintenance",
+	"services": [
+		{
+			"serviceId": 101,
+			"serviveName": "Packers and Movers",
+			"subServices": [
+				{
+					"subServiceId": 10101,
+					"subServiceName": "Upto 10 Kms",
+					"price": ""
+				},
+				{
+					"subServiceId": 10102,
+					"subServiceName": "Upto 10-20 Kms",
+					"price": ""
+				},
+				{
+					"subServiceId": 10103,
+					"subServiceName": "Upto 20-30 Kms",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 102,
+			"serviveName": "Carpenters",
+			"subServices": []
+		},
+		{
+			"serviceId": 103,
+			"serviveName": "Plumbers",
+			"subServices": []
+		},
+		{
+			"serviceId": 104,
+			"serviveName": "Electricians",
+			"subServices": []
+		},
+		{
+			"serviceId": 105,
+			"serviveName": "Painters",
+			"subServices": []
+		},
+		{
+			"serviceId": 106,
+			"serviveName": "Rainwater Harvesting",
+			"subServices": [
+				{
+					"subServiceId": 10601,
+					"subServiceName": "Installation",
+					"price": ""
+				},
+				{
+					"subServiceId": 10602,
+					"subServiceName": "Service",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 107,
+			"serviveName": "Interior Designers",
+			"subServices": []
+		},
+		{
+			"serviceId": 108,
+			"serviveName": "Gardeners",
+			"subServices": [
+				{
+					"subServiceId": 10801,
+					"subServiceName": "General Maintenance",
+					"price": ""
+				},
+				{
+					"subServiceId": 10802,
+					"subServiceName": "Landscapes",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 109,
+			"serviveName": "Masonry Works",
+			"subServices": []
+		},
+		{
+			"serviceId": 110,
+			"serviveName": "Welding & Fabrication",
+			"subServices": []
+		},
+		{
+			"serviceId": 111,
+			"serviveName": "Architects",
+			"subServices": [
+				{
+					"subServiceId": 11101,
+					"subServiceName": "Residentail",
+					"price": ""
+				},
+				{
+					"subServiceId": 11102,
+					"subServiceName": "Commercial",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 112,
+			"serviveName": "Solar Heater Services",
+			"subServices": [
+				{
+					"subServiceId": 11201,
+					"subServiceName": "Installation",
+					"price": ""
+				},
+				{
+					"subServiceId": 11202,
+					"subServiceName": "Repair",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 113,
+			"serviveName": "Water Proofing",
+			"subServices": [
+				{
+					"subServiceId": 11301,
+					"subServiceName": "Residential",
+					"price": ""
+				},
+				{
+					"subServiceId": 11302,
+					"subServiceName": "Commercial",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 114,
+			"serviveName": "Civil Contractors",
+			"subServices": [
+				{
+					"subServiceId": 11401,
+					"subServiceName": "Home",
+					"price": ""
+				},
+				{
+					"subServiceId": 11402,
+					"subServiceName": "Office",
+					"price": ""
+				},
+				{
+					"subServiceId": 11403,
+					"subServiceName": "Retail(Shop/Showroom)",
+					"price": ""
+				},
+				{
+					"subServiceId": 11404,
+					"subServiceName": "Hospitality(Cafe/Restuarant/Hotel)",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 115,
+			"serviveName": "Packers and Movers Outstation",
+			"subServices": [
+				{
+					"subServiceId": 11501,
+					"subServiceName": "Home Shifting",
+					"price": ""
+				},
+				{
+					"subServiceId": 11502,
+					"subServiceName": "Vehicle Shifting",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 116,
+			"serviveName": "False Ceiling",
+			"subServices": [
+				{
+					"subServiceId": 11601,
+					"subServiceName": "Residential",
+					"price": ""
+				},
+				{
+					"subServiceId": 11602,
+					"subServiceName": "Commercial",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 117,
+			"serviveName": "Sofa Repair & Services",
+			"subServices": [
+				{
+					"subServiceId": 11701,
+					"subServiceName": "Repair",
+					"price": ""
+				},
+				{
+					"subServiceId": 11702,
+					"subServiceName": "Polish",
+					"price": ""
+				},
+				{
+					"subServiceId": 11703,
+					"subServiceName": "Upholstery",
+					"price": ""
+				},
+				{
+					"subServiceId": 11704,
+					"subServiceName": "General Maitainance",
+					"price": ""
+				}
+			]
+		}
+	]
+}
+{
+	"categoryId": 2,
+	"categoryName": "Cleaning Services",
+	"services": [
+		{
+			"serviceId": 201,
+			"serviveName": "Pest Control Services",
+			"subServices": [
+				{
+					"subServiceId" : 20101,
+					"subServiceName": "Cockroach Treatment",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20102,
+					"subServiceName": "Bed Bugs Treatment",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20103,
+					"subServiceName": "Rodent Control",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20104,
+					"subServiceName": "Mosquito & Flies",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20105,
+					"subServiceName": "Cockroach & Bed Bug Combo",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20106,
+					"subServiceName": "Basic Treatment-Ant, Flies & Cockroach",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20107,
+					"subServiceName": "Bee Hive Removal",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 202,
+			"serviveName": "Laundry Services",
+			"subServices": [
+				{
+					"subServiceId" : 20201,
+					"subServiceName": "Wash and Iron",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20202,
+					"subServiceName": "Dry Cleaning",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20203,
+					"subServiceName": "Wash Only",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 203,
+			"serviveName": "Watertank Cleaning",
+			"subServices": []
+		},
+		{
+			"serviceId": 204,
+			"serviveName": "House Cleaning Services",
+			"subServices": [
+				{	
+					"subServiceId" : 20401,
+					"subServiceName": "Basic Home Cleaning",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20402,
+					"subServiceName": "Deep Cleaning",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 205,
+			"serviveName": "Sewage - Pit Cleaning",
+			"subServices": []
+		},
+		{
+			"serviceId": 206,
+			"serviveName": "Chimney Cleaning",
+			"subServices": []
+		},
+		{
+			"serviceId": 207,
+			"serviveName": "Home Carpet Cleaning",
+			"subServices": [
+				{
+					"subServiceId" : 20701,
+					"subServiceName": "35-70 Sq-ft",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20702,
+					"subServiceName": "70-100 Sq-ft",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20703,
+					"subServiceName": "100-200 Sq-ft",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 208,
+			"serviveName": "Glass Cleaning Service",
+			"subServices": [
+				{
+					"subServiceId" : 20801,
+					"subServiceName": "Residential",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20802,
+					"subServiceName": "Commercial",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 209,
+			"serviveName": "Office Cleaning Services",
+			"subServices": [
+				{
+					"subServiceId" : 20901,
+					"subServiceName": "less than 1000 Sq ft",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20902,
+					"subServiceName": "1000 to 2500 Sq ft",
+					"price": ""
+				},
+				{
+					"subServiceId" : 20903,
+					"subServiceName": "More than 2500 Sq ft",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 210,
+			"serviveName": "Aquarium Cleaning",
+			"subServices": [
+				{
+					"subServiceId" : 21001,
+					"subServiceName": "Residential",
+					"price": ""
+				},
+				{
+					"subServiceId" : 21002,
+					"subServiceName": "Commercial",
+					"price": ""
+				},
+				{
+					"subServiceId" : 21003,
+					"subServiceName": "New Installation",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 211,
+			"serviveName": "Hob Cleaning",
+			"subServices": []
+		},
+		{
+			"serviceId": 212,
+			"serviveName": "Termite Control",
+			"subServices": [
+				{
+					"subServiceId" : 21201,
+					"subServiceName": "Residential",
+					"price": ""
+				},
+				{
+					"subServiceId" : 21702,
+					"subServiceName": "Commercial",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 213,
+			"serviveName": "Commercial Carpet Cleaning",
+			"subServices": []
+		},
+		{
+			"serviceId": 214,
+			"serviveName": "Bathroom Cleaning",
+			"subServices": []
+		},
+		{
+			"serviceId": 215,
+			"serviveName": "Kitchen Cleaning",
+			"subServices": []
+		},
+		{
+			"serviceId": 216,
+			"serviveName": "Sofa Cleaning",
+			"subServices": []
+		},
+		{
+			"serviceId": 217,
+			"serviveName": "Commercial Pest Control",
+			"subServices": [
+				{	
+					"subServiceId" : 21701,
+					"subServiceName": "General Pest Control",
+					"price": ""
+				},
+				{
+					"subServiceId" : 21702,
+					"subServiceName": "Cockroach Treatment",
+					"price": ""
+				},
+				{
+					"subServiceId" : 21703,
+					"subServiceName": "House Fly Treatment",
+					"price": ""
+				},
+				{
+					"subServiceId" : 21704,
+					"subServiceName": "Rodent Control",
+					"price": ""
+				},
+				{
+					"subServiceId" : 21705,
+					"subServiceName": "Mosquito Treatment",
+					"price": ""
+				}
+			]
+		}
+	]
+}
+{
+  "categoryId": 3,
+  "categoryName": "Document Services",
+  "services": [
+    {
+      "serviceId": 301,
+      "serviveName": "Passport Consultants",
+      "subServices": [
+        {	
+          "subServiceId" : 30101,
+          "subServiceName": "Apply New",
+          "price": ""
+        },
+        {	
+          "subServiceId" : 30102,
+          "subServiceName": "Tatkal",
+          "price": ""
+        },
+        {	
+          "subServiceId" : 30103,
+          "subServiceName": "Passport and Minor",
+          "price": ""
+        },
+        {	
+          "subServiceId" : 30104,
+          "subServiceName": "Renewalr",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 302,
+      "serviveName": "PAN Card Consultants",
+      "subServices": [
+        {	
+          "subServiceId" : 30201,
+          "subServiceName": "Apply New",
+          "price": ""
+        },
+        {	
+          "subServiceId" : 30202,
+          "subServiceName": "Duplicate",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 303,
+      "serviveName": "Notary & Agreements",
+      "subServices": [
+        {	
+          "subServiceId" : 30301,
+          "subServiceName": "Rental Agreements",
+          "price": ""
+        },
+         {	
+          "subServiceId" : 30302,
+          "subServiceName": "Lease Agreements",
+          "price": ""
+        },
+         {	
+          "subServiceId" : 30303,
+          "subServiceName": "Affidavits",
+          "price": ""
+        },
+         {	
+          "subServiceId" : 30304,
+          "subServiceName": "Passport Annexure",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 304,
+      "serviveName": "VISA Services",
+      "subServices": [
+         {	
+          "subServiceId" : 30401,
+          "subServiceName": "Student Visa",
+          "price": ""
+        },
+        {	
+          "subServiceId" : 30402,
+          "subServiceName": "Tourist Visa",
+          "price": ""
+        },
+        {	
+          "subServiceId" : 30403,
+          "subServiceName": "Work Visa",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 305,
+      "serviveName": "GST Services",
+      "subServices": [
+       {	
+          "subServiceId" : 30501,
+          "subServiceName": "Registration",
+          "price": ""
+        },
+        {	
+          "subServiceId" : 30502,
+          "subServiceName": "Migration",
+          "price": ""
+        },
+        {	
+          "subServiceId" : 30503,
+          "subServiceName": "Filing",
+          "price": ""
+        }
+      ]
+    },
+    {
+       "serviceId": 306,
+      "serviveName": "IT Returns Filing",
+      "subServices": []
+    }
+  ]
+}
+{
+	"categoryId": 4,
+	"categoryName": "Events & Occasions",
+	"services": [
+		{
+			"serviceId": 401,
+			"serviveName": "Cake Delivery",
+			"subServices": []
+		},
+		{
+			"serviceId": 402,
+			"serviveName": "Flowers Delivery",
+			"subServices": []
+		},
+		{
+			"serviceId": 403,
+			"serviveName": "Pandits & Purohits",
+			"subServices": [
+				{	
+					"subServiceId" : 40301,
+					"subServiceName": "Pandits & Purohits",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40302,
+					"subServiceName": "Naming Ceremony",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40303,
+					"subServiceName": "Marriage Ceremony",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40304,
+					"subServiceName": "Shraaddha",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40305,
+					"subServiceName": "Opening Ceremony",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40306,
+					"subServiceName": "Satyanarayana Puja",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40307,
+					"subServiceName": "Sunderkhand Path",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40308,
+					"subServiceName": "Mula Shanti",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40309,
+					"subServiceName": "Punya",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40310,
+					"subServiceName": "Bhoomi Puja",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40311,
+					"subServiceName": "Ganapathi Homa",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40312,
+					"subServiceName": "Sudarshana Homa",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40313,
+					"subServiceName": "Navagraha Homa",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40314,
+					"subServiceName": "Vaastu Homa",
+					"price": ""
+				},
+				{	
+					"subServiceId" : 40315,
+					"subServiceName": "Ganapathy & Navagraha Homa",
+					"price": ""
+				}
+				
+			]
+		},
+		{
+			"serviceId": 404,
+			"serviveName": "Mehendi Artists",
+			"subServices": [
+				{
+					"subServiceId" : 40401,
+					"subServiceName": "Bridal Design",
+					"price": ""
+				},
+				{
+					"subServiceId" : 40402,
+					"subServiceName": "Indian Design",
+					"price": ""
+				},
+				{
+					"subServiceId" : 40403,
+					"subServiceName": "Arabic Design",
+					"price": ""
+				},
+				{
+					"subServiceId" : 40404,
+					"subServiceName": "Indo Arabic Design",
+					"price": ""
+				},
+				{
+					"subServiceId" : 40405,
+					"subServiceName": "Other Designs",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 405,
+			"serviveName": "Caterers",
+			"subServices": [
+				{
+					"subServiceId" : 40501,
+					"subServiceName": "Vegetarian",
+					"price": ""
+				},
+				{
+					"subServiceId" : 40501,
+					"subServiceName": "Non Vegetarian",
+					"price": ""
+				},
+				{
+					"subServiceId" : 40501,
+					"subServiceName": "Both",
+					"price": ""
+				}
+			]
+		},
+		{
+			"serviceId": 406,
+			"serviveName": "Wedding Planners",
+			"subServices": []
+		},
+		{
+			"serviceId": 407,
+			"serviveName": "Birthday Planners",
+			"subServices": []
+		},
+		{
+			"serviceId": 408,
+			"serviveName": "Balloon Decor",
+			"subServices": []
+		},
+		{
+			"serviceId": 409,
+			"serviveName": "Engagement Planners",
+			"subServices": []
+		},
+		{
+			"serviceId": 410,
+			"serviveName": "Sangeet Planners",
+			"subServices": []
+		},
+		{
+			"serviceId": 411,
+			"serviveName": "Mehendi Planners",
+			"subServices": []
+		},
+		{
+			"serviceId": 412,
+			"serviveName": "Reception Planners",
+			"subServices": []
+		}
+	]
+}
+
+{
+  "categoryId": 5,
+  "categoryName": "Automobile Services",
+  "services": [
+    {
+      "serviceId": 501,
+      "serviveName": "Car Wash",
+      "subServices": [
+        {
+        	"subServiceId" : 50101,
+         	 "subServiceName": "Water Car Wash",
+         	 "price": ""
+        },
+        {
+        	"subServiceId" : 50102,
+         	 "subServiceName": "Interior Detailing",
+         	 "price": ""
+        },
+        {
+        	"subServiceId" : 50103,
+         	 "subServiceName": "Eco Car Wash",
+         	 "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 502,
+      "serviveName": "Driving School",
+      "subServices": [
+      {
+        	"subServiceId" : 50201,
+         	 "subServiceName": "Training + Driving License",
+         	 "price": ""
+        },
+        {
+        	"subServiceId" : 50202,
+         	 "subServiceName": "Driving License Only",
+         	 "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 503,
+      "serviveName": "Bike Repair & Service",
+      "subServices": [
+        {
+        	"subServiceId" : 50301,
+          "subServiceName": "Bike Regular Service",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 504,
+      "serviveName": "Car Body Shop",
+      "subServices": [
+        {
+        	"subServiceId" : 50401,
+       		"subServiceName": "Full Body",
+        	 "price": ""
+        },
+        {
+        	"subServiceId" : 50402,
+       		"subServiceName": "Body Panels",
+        	 "price": ""
+        },
+        {
+        	"subServiceId" : 50403,
+       		"subServiceName": "Dent Removal",
+        	 "price": ""
+        },
+        {
+        	"subServiceId" : 50404,
+       		"subServiceName": "Painting",
+        	 "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 505,
+      "serviveName": "Car Service",
+      "subServices": [
+        {
+        	"subServiceId" : 50501,
+       		"subServiceName": "Hatch Back",
+        	 "price": ""
+        },
+        {
+        	"subServiceId" : 50502,
+       		"subServiceName": "Sedan",
+        	 "price": ""
+        },
+        {
+        	"subServiceId" : 50503,
+       		"subServiceName": "SUV",
+        	 "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 506,
+      "serviveName": "Breakdown Assistance",
+      "subServices": [
+       {
+        	"subServiceId" : 50601,
+       		"subServiceName": "Car",
+        	 "price": ""
+        },
+        {
+        	"subServiceId" : 50602,
+       		"subServiceName": "Bike",
+        	 "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 507,
+      "serviveName": "CNG Kit Services",
+      "subServices": [
+        {
+        	"subServiceId" : 50701,
+          "subServiceName": "CNG Kit Purchase",
+          "price": ""
+        },
+         {
+        	"subServiceId" : 50702,
+          "subServiceName": "CNG Kit Installation",
+          "price": ""
+        },
+         {
+ 			"subServiceId" : 50701,
+			"subServiceName": "CNG Kit Repair",
+			"price": ""
+        }
+      ]
+    }
+  ]
+}
+{
+  "categoryId": 6,
+  "categoryName": "Health & Personal",
+  "services": [
+    {
+      "serviceId": 601,
+      "serviveName": "Physiotherapy at Home",
+      "subServices": [
+         {
+ 			"subServiceId" : 60101,
+			"subServiceName": "Muscular Pain",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60102,
+			"subServiceName": "Back Pain",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60103,
+			"subServiceName": "After Surgery",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60104,
+			"subServiceName": "Joint Pain",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60105,
+			"subServiceName": "Consultation",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 602,
+      "serviveName": "Fitness Trainer at Home",
+      "subServices": [
+       {
+ 			"subServiceId" : 60201,
+			"subServiceName": "Weight Loss Training",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60202,
+			"subServiceName": "Weight Gain Training",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60203,
+			"subServiceName": "Muscular Building Training",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60204,
+			"subServiceName": "General Fitness Training",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60205,
+			"subServiceName": "Fitness Consultation",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 603,
+      "serviveName": "Yoga & Meditation at Home",
+      "subServices": [
+        {
+ 			"subServiceId" : 60301,
+			"subServiceName": "Weight Loss Training",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60302,
+			"subServiceName": "General Fitness Training",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60303,
+			"subServiceName": "Strength Building Training",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60304,
+			"subServiceName": "Medically Suggested Training",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60305,
+			"subServiceName": "Yoga Consultation",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60306,
+			"subServiceName": "Meditation Training",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 604,
+      "serviveName": "Tattoo Artists",
+      "subServices": [
+        {
+ 			"subServiceId" : 60401,
+			"subServiceName": "Permanant",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60402,
+			"subServiceName": "Temporary",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 605,
+      "serviveName": "Beauty Services",
+      "subServices": []
+    },
+    {
+      "serviceId": 606,
+      "serviveName": "Astrology",
+      "subServices": [
+       {
+ 			"subServiceId" : 60601,
+			"subServiceName": "Numerology",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60602,
+			"subServiceName": "Horoscope Reading",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60603,
+			"subServiceName": "Palm Reading",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60604,
+			"subServiceName": "Tarot Reading",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60605,
+			"subServiceName": "Marriage Matching",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 60606,
+			"subServiceName": "Vastu Consultancy",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 607,
+      "serviveName": "Tailoring",
+      "subServices": [
+        {
+ 			"subServiceId" : 60701,
+			"subServiceName": "Men",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60702,
+			"subServiceName": "Women",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 608,
+      "serviveName": "Security Guards",
+      "subServices": [
+         {
+ 			"subServiceId" : 60801,
+			"subServiceName": "Commercial",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60802,
+			"subServiceName": "Residential",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 609,
+      "serviveName": "House Keeping",
+      "subServices": [
+         {
+ 			"subServiceId" : 60901,
+			"subServiceName": "Commercial",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 60902,
+			"subServiceName": "Residential",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 610,
+      "serviveName": "Bridal Makeup",
+      "subServices": [
+        {
+ 			"subServiceId" : 61001,
+			"subServiceName": "Wedding",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 61002,
+			"subServiceName": "Engagement",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 61003,
+			"subServiceName": "Party",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 611,
+      "serviveName": "Shoe Laundry",
+      "subServices": [
+        {
+ 			"subServiceId" : 61101,
+			"subServiceName": "Spa",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 61102,
+			"subServiceName": "Repair",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 61103,
+			"subServiceName": "Resole",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 61104,
+			"subServiceName": "Recolor",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 612,
+      "serviveName": "Dietitian",
+      "subServices": [
+         {
+ 			"subServiceId" : 61201,
+			"subServiceName": "Weight Loss",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 61202,
+			"subServiceName": "Weigth Gain",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 61203,
+			"subServiceName": "Improve Medical Condition",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 61204,
+			"subServiceName": "Others",
+			"price": ""
+        }
+      ]
+    }
+  ]
+}
+{
+  "categoryId": 7,
+  "categoryName": "Electronics & Appliances",
+  "services": [
+    {
+      "serviceId": 701,
+      "serviveName": "Computer Service",
+      "subServices": [
+       {
+ 			"subServiceId" : 70101,
+			"subServiceName": "Laptop",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 70102,
+			"subServiceName": "Desktop",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 702,
+      "serviveName": "Mobile Repair",
+      "subServices": []
+    },
+    {
+      "serviceId": 703,
+      "serviveName": "CCTV Installation & Repair",
+      "subServices": [
+       {
+ 			"subServiceId" : 70301,
+			"subServiceName": "Installation",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 70302,
+			"subServiceName": "Repair",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 704,
+      "serviveName": "Water Pump Repair",
+      "subServices": [
+         {
+ 			"subServiceId" : 70401,
+			"subServiceName": "Installation",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 70402,
+			"subServiceName": "Repair & Service",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 705,
+      "serviveName": "Refrigerator Repair",
+      "subServices": [
+         {
+ 			"subServiceId" : 70501,
+			"subServiceName": "Repair & Service",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 70502,
+			"subServiceName": "Gas Filling",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 706,
+      "serviveName": "Water Purifier Repair",
+      "subServices": [
+       {
+ 			"subServiceId" : 70601,
+			"subServiceName": "Installation",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 70602,
+			"subServiceName": "Repair & Service",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 70603,
+			"subServiceName": "Filter Change",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 707,
+      "serviveName": "Microwave Oven Repair",
+      "subServices": []
+    },
+    {
+      "serviceId": 708,
+      "serviveName": "Chimney Repair",
+      "subServices": [
+        {
+ 			"subServiceId" : 70801,
+			"subServiceName": "Installation",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 70802,
+			"subServiceName": "Repair & Service",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 709,
+      "serviveName": "Geyser Repair",
+      "subServices": [
+        {
+ 			"subServiceId" : 70901,
+			"subServiceName": "Installation",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 70902,
+			"subServiceName": "Repair & Service",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 710,
+      "serviveName": "Washing Machine Repair",
+      "subServices": [
+        {
+ 			"subServiceId" : 71001,
+			"subServiceName": "Semi Automatic",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 71002,
+			"subServiceName": "Fully Automatic",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 711,
+      "serviveName": "TV Wall Mounting / Installation",
+      "subServices": [
+        {
+ 			"subServiceId" : 71101,
+			"subServiceName": "LED & LCD",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 712,
+      "serviveName": "Inverter Repair",
+      "subServices": [
+        {
+ 			"subServiceId" : 71201,
+			"subServiceName": "New Installation",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 71202,
+			"subServiceName": "Repair & Service",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 713,
+      "serviveName": "Dishwasher Repair",
+      "subServices": []
+    },
+    {
+      "serviceId": 714,
+      "serviveName": "AC Repair",
+      "subServices": [
+       {
+ 			"subServiceId" : 71401,
+			"subServiceName": "Installation",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 71402,
+			"subServiceName": "Repair & Service",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 71403,
+			"subServiceName": "Gas Filling",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 715,
+      "serviveName": "Apple Repair Services",
+      "subServices": [
+      {
+ 			"subServiceId" : 71501,
+			"subServiceName": "iPhone",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 71502,
+			"subServiceName": "Mac/Macbook",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 71503,
+			"subServiceName": "iPad",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 71504,
+			"subServiceName": "Accesories",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 716,
+      "serviveName": "Printer Repair",
+      "subServices": [
+        {
+ 			"subServiceId" : 71601,
+			"subServiceName": "Ink Jet",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 71602,
+			"subServiceName": "Laser",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 71603,
+			"subServiceName": "All in one",
+			"price": ""
+        },
+         {
+ 			"subServiceId" : 71604,
+			"subServiceName": "Dot  Matrix",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 717,
+      "serviveName": "DTH Repair & Re-Installation",
+      "subServices": [
+         {
+ 			"subServiceId" : 71701,
+			"subServiceName": "Repair",
+			"price": ""
+        },
+        {
+ 			"subServiceId" : 71702,
+			"subServiceName": "Reinstallation",
+			"price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 718,
+      "serviveName": "TV Repair LED/LCD Only",
+      "subServices": []
+    },
+    {
+      "serviceId": 719,
+      "serviveName": "TV Repair CRT TV Only",
+      "subServices": []
+    }
+  ]
+}
+{
+  "categoryId": 8,
+  "categoryName": "Photography Services",
+  "services": [
+    {
+      "serviceId": 801,
+      "serviveName": "Wedding Photography",
+      "subServices": [
+        {
+        	"subServiceId" : 80101,
+          "subServiceName": "Candid Photography",
+          "price": ""
+        },
+        {
+        	"subServiceId" : 80102,
+          "subServiceName": "Candid Photo & Vedio",
+          "price": ""
+        },
+        {
+        	"subServiceId" : 80103,
+          "subServiceName": "Traditional Photography",
+          "price": ""
+        },
+        {
+        	"subServiceId" : 80104,
+          "subServiceName": "Traditional Photo & Vedio",
+          "price": ""
+        },
+        {
+        "subServiceId" : 80105,
+          "subServiceName": "Candid Vediography",
+          "price": ""
+        },
+        {
+        "subServiceId" : 80106,
+          "subServiceName": "Traditional Vediography",
+          "price": ""
+        },
+        {
+        "subServiceId" : 80107,
+          "subServiceName": "Cinematic Vediography",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 802,
+      "serviveName": "Pre Wedding Shoot",
+      "subServices": [
+        {
+        "subServiceId" : 80201,
+          "subServiceName": "Photography",
+          "price": ""
+        },
+        {
+        "subServiceId" : 80202,
+          "subServiceName": "Photography & Vedio",
+          "price": ""
+        },
+        {
+        "subServiceId" : 80203,
+          "subServiceName": "Cinematic Vediography",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 803,
+      "serviveName": "Events Photography",
+      "subServices": [
+        {
+        "subServiceId" : 80301,
+          "subServiceName": "Engagement",
+          "price": ""
+        },
+        {
+        "subServiceId" : 80302,
+          "subServiceName": "Birthday",
+          "price": ""
+        },
+        {
+        "subServiceId" : 80303,
+          "subServiceName": "House Warming",
+          "price": ""
+        },
+        {
+        "subServiceId" : 80304,
+          "subServiceName": "Corporate  Event",
+          "price": ""
+        },
+        {
+        "subServiceId" : 80305,
+          "subServiceName": "Other",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 804,
+      "serviveName": "Baby Photographers",
+      "subServices": [
+        {
+          "subServiceName": "Budget",
+          "price": ""
+        },
+        {
+          "subServiceName": "Standard",
+          "price": ""
+        },
+        {
+          "subServiceName": "Premium",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 805,
+      "serviveName": "Maternity Photographers",
+      "subServices": [
+        {
+          "subServiceName": "Budget",
+          "price": ""
+        },
+        {
+          "subServiceName": "Standard",
+          "price": ""
+        },
+        {
+          "subServiceName": "Premium",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 806,
+      "serviveName": "Product Shoots",
+      "subServices": [
+        {
+          "subServiceName": "Budget",
+          "price": ""
+        },
+        {
+          "subServiceName": "Standard",
+          "price": ""
+        },
+        {
+          "subServiceName": "Premium",
+          "price": ""
+        }
+      ]
+    },
+    {
+      "serviceId": 807,
+      "serviveName": "Portraits and Portfolio Shoots",
+      "subServices": [
+        {
+          "subServiceName": "Budget",
+          "price": ""
+        },
+        {
+          "subServiceName": "Standard",
+          "price": ""
+        },
+        {
+          "subServiceName": "Premium",
+          "price": ""
+        }
+      ]
+    }
+  ]
+}
