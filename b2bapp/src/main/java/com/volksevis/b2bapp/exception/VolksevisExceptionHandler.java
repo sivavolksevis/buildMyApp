@@ -9,7 +9,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.volksevis.b2bapp.Model.ErrorResponseEntity;
+import com.volksevis.b2bapp.view.ErrorResponseEntity;
 
 @ControllerAdvice
 public class VolksevisExceptionHandler {

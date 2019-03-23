@@ -13,7 +13,7 @@ public class MemberEntity {
 
 	@Id
 	@Field(value = "_id")
-	private String id;
+	private Object id;
 	@Field(value = "memberId")
 	private long memberId;
 	@Field(value = "mobileNumber")
@@ -26,12 +26,20 @@ public class MemberEntity {
 	private String lastName;
 	@Field(value = "active")
 	private boolean active;
+	private String stdCode;
+	private String businessOwnerName;
+	private String secondaryMobileNumber;
+	private String landLineNumber;
+	private String email;
+	private String gender;
+	private String qualification;
+	private String otherQualifications;
 
-	public String getId() {
+	public Object getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Object id) {
 		this.id = id;
 	}
 
@@ -81,6 +89,70 @@ public class MemberEntity {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public String getBusinessOwnerName() {
+		return businessOwnerName;
+	}
+
+	public void setBusinessOwnerName(String businessOwnerName) {
+		this.businessOwnerName = businessOwnerName;
+	}
+
+	public String getSecondaryMobileNumber() {
+		return secondaryMobileNumber;
+	}
+
+	public void setSecondaryMobileNumber(String secondaryMobileNumber) {
+		this.secondaryMobileNumber = secondaryMobileNumber;
+	}
+
+	public String getLandLineNumber() {
+		return landLineNumber;
+	}
+
+	public void setLandLineNumber(String landLineNumber) {
+		this.landLineNumber = landLineNumber;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getQualification() {
+		return qualification;
+	}
+
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+
+	public String getOtherQualifications() {
+		return otherQualifications;
+	}
+
+	public void setOtherQualifications(String otherQualifications) {
+		this.otherQualifications = otherQualifications;
+	}
+
+	public String getStdCode() {
+		return stdCode;
+	}
+
+	public void setStdCode(String stdCode) {
+		this.stdCode = stdCode;
 	}
 
 }

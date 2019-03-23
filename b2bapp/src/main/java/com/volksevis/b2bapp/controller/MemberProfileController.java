@@ -17,6 +17,7 @@ import com.volksevis.b2bapp.exception.MemberProfileException;
 import com.volksevis.b2bapp.exception.VolksevisException;
 import com.volksevis.b2bapp.helper.MemberProfileHelper;
 import com.volksevis.b2bapp.service.IMemberProfileService;
+import com.volksevis.b2bapp.view.UserDetails;
 
 @RestController
 @RequestMapping("/volksevis/api/")
@@ -59,4 +60,12 @@ public class MemberProfileController {
 		JSONObject response = memberProfileService.getServices();
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
+
+	@PostMapping("/saveMemberInfo")
+	public ResponseEntity<String> saveMemberInfo(@RequestBody UserDetails userDetails) throws VolksevisException {
+		log.info("In saveMemberInfo method ");
+		JSONObject response = memberProfileService.saveMemberInfo(userDetails);
+		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+	}
+
 }

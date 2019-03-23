@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,10 @@ import com.volksevis.b2bapp.dao.IMemberProfileDAO;
 import com.volksevis.b2bapp.exception.MemberNotFoundException;
 import com.volksevis.b2bapp.exception.MemberProfileException;
 import com.volksevis.b2bapp.exception.VolksevisException;
+import com.volksevis.b2bapp.helper.B2bAppConstants;
 import com.volksevis.b2bapp.util.ICommunicationUtility;
+import com.volksevis.b2bapp.util.VolksevisUtility;
+import com.volksevis.b2bapp.view.UserDetails;
 
 @Service
 public class MemberProfileServiceImpl implements IMemberProfileService {
@@ -46,7 +50,8 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 		try {
 			String otp = RandomStringUtils.randomNumeric(4);
 			String message = OTP_MESSAGE_BODY + otp;
-			boolean isSMSsent = communicationUtility.sendTextMessage(message, mobileNumber);
+			String formattedMobile = VolksevisUtility.formatIntoKenyaMobile(mobileNumber);
+			boolean isSMSsent = communicationUtility.sendTextMessage(message, formattedMobile);
 			if (!isSMSsent) {
 				throw new MemberProfileException("Failed to send OTP please try again");
 			}
@@ -54,12 +59,14 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 			memberEntity.setMemberId(Long.valueOf(RandomStringUtils.randomNumeric(6)));
 			memberEntity.setMobileNumber(mobileNumber);
 			memberEntity.setOtp(otp);
+			memberEntity.setStdCode(B2bAppConstants.KENYA_STD_CODE);
 			memberProfileDAO.saveMemberEntityObject(memberEntity);
 			responsObject = new JSONObject();
 			responsObject.put("success", true);
 			responsObject.put("statusCode", 200);
 			JSONObject response = new JSONObject();
 			response.put("OTP", otp);
+			response.put("memberId", memberEntity.getMemberId());
 			responsObject.put("response", response);
 		} catch (Exception exception) {
 			throw new MemberProfileException(exception.getMessage());
@@ -121,21 +128,48 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 
 	@Override
 	public JSONObject getServices() throws VolksevisException {
-		log.info("In getCities method Started");
+		log.info("In getServices method Started");
 		JSONObject responsObject = null;
 		try {
-			List<ServicesEntity> cities = memberProfileDAO.getServices();
+			List<ServicesEntity> services = memberProfileDAO.getServices();
 			responsObject = new JSONObject();
 			responsObject.put("success", true);
 			responsObject.put("statusCode", 200);
 			JSONObject response = new JSONObject();
 			response.put("message", "Valid Request");
-			String citiesString = objectMapper.writeValueAsString(cities);
-			responsObject.put("response", new JSONArray(citiesString));
+			String servicesString = objectMapper.writeValueAsString(services);
+			responsObject.put("response", new JSONArray(servicesString));
 		} catch (Exception exception) {
 			throw new VolksevisException(exception.getMessage());
 		}
-		log.info("In getCities method Ended");
+		log.info("In getServices method Ended");
+		return responsObject;
+	}
+
+	@Override
+	public JSONObject saveMemberInfo(UserDetails userDetails) throws VolksevisException {
+		JSONObject responsObject = null;
+		try {
+			String mobileNumber = userDetails.getMobileNumber();
+			if (mobileNumber == null) {
+				throw new VolksevisException("Invalid Request Details");
+			}
+			MemberEntity memberEntity = memberProfileDAO.findByMobileNumber(mobileNumber);
+			if (memberEntity == null) {
+				throw new VolksevisException("Invalid Request Details");
+			}
+			BeanUtils.copyProperties(userDetails, memberEntity, "memberId", "active");
+			memberProfileDAO.saveMemberEntityObject(memberEntity);
+			responsObject = new JSONObject();
+			responsObject.put("success", true);
+			responsObject.put("statusCode", 200);
+			JSONObject response = new JSONObject();
+			response.put("message", "Valid Request");
+			responsObject.put("response", new JSONObject(memberEntity));
+		} catch (Exception exception) {
+			throw new VolksevisException(exception.getMessage());
+		}
+		log.info("In saveMemberInfo method Ended");
 		return responsObject;
 	}
 

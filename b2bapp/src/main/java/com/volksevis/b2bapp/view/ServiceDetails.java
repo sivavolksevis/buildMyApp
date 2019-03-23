@@ -1,4 +1,4 @@
-package com.volksevis.b2bapp.Model;
+package com.volksevis.b2bapp.view;
 
 import java.util.List;
 
