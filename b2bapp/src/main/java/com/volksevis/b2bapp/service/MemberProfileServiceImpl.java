@@ -148,13 +148,11 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 
 	@Override
 	public JSONObject saveMemberInfo(UserDetails userDetails) throws VolksevisException {
+		log.info("In saveMemberInfo method Started");
 		JSONObject responsObject = null;
 		try {
-			String mobileNumber = userDetails.getMobileNumber();
-			if (mobileNumber == null) {
-				throw new VolksevisException("Invalid Request Details");
-			}
-			MemberEntity memberEntity = memberProfileDAO.findByMobileNumber(mobileNumber);
+			Long memberId = userDetails.getMemberId();
+			MemberEntity memberEntity = memberProfileDAO.findByMemberId(memberId);
 			if (memberEntity == null) {
 				throw new VolksevisException("Invalid Request Details");
 			}
@@ -170,6 +168,32 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 			throw new VolksevisException(exception.getMessage());
 		}
 		log.info("In saveMemberInfo method Ended");
+		return responsObject;
+	}
+
+	@Override
+	public JSONObject saveBusinessInfo(MemberEntity memberEntity) throws VolksevisException {
+		log.info("In saveBusinessInfo method Started");
+		JSONObject responsObject = null;
+		try {
+			Long memberId = memberEntity.getMemberId();
+			MemberEntity persistedEntity = memberProfileDAO.findByMemberId(memberId);
+			if (persistedEntity == null) {
+				throw new VolksevisException("Invalid Request Details");
+			}
+			persistedEntity.setBusinessDetails(memberEntity.getBusinessDetails());
+			memberProfileDAO.saveMemberEntityObject(persistedEntity);
+			responsObject = new JSONObject();
+			responsObject.put("success", true);
+			responsObject.put("statusCode", 200);
+			JSONObject response = new JSONObject();
+			response.put("message", "Valid Request");
+			String member = objectMapper.writeValueAsString(persistedEntity);
+			responsObject.put("response", new JSONObject(member));
+		} catch (Exception exception) {
+			throw new VolksevisException(exception.getMessage());
+		}
+		log.info("In saveBusinessInfo method Ended");
 		return responsObject;
 	}
 

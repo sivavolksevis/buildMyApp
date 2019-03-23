@@ -10,4 +10,6 @@ public interface MemberRepository extends MongoRepository<MemberEntity, Long> {
 
 	public MemberEntity findByMobileNumber(String mobile);
 
+	public MemberEntity findByMemberId(long memberId);
+
 }

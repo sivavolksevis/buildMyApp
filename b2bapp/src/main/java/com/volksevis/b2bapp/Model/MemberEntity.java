@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.volksevis.b2bapp.view.BusinessDetails;
 
 @JsonIgnoreProperties(ignoreUnknown = true, allowGetters = true)
 @Document(collection = "Members")
@@ -15,7 +16,7 @@ public class MemberEntity {
 	@Field(value = "_id")
 	private Object id;
 	@Field(value = "memberId")
-	private long memberId;
+	private Long memberId;
 	@Field(value = "mobileNumber")
 	private String mobileNumber;
 	@Field(value = "otp")
@@ -34,6 +35,7 @@ public class MemberEntity {
 	private String gender;
 	private String qualification;
 	private String otherQualifications;
+	private BusinessDetails businessDetails;
 
 	public Object getId() {
 		return id;
@@ -43,11 +45,11 @@ public class MemberEntity {
 		this.id = id;
 	}
 
-	public long getMemberId() {
+	public Long getMemberId() {
 		return memberId;
 	}
 
-	public void setMemberId(long memberId) {
+	public void setMemberId(Long memberId) {
 		this.memberId = memberId;
 	}
 
@@ -153,6 +155,14 @@ public class MemberEntity {
 
 	public void setStdCode(String stdCode) {
 		this.stdCode = stdCode;
+	}
+
+	public BusinessDetails getBusinessDetails() {
+		return businessDetails;
+	}
+
+	public void setBusinessDetails(BusinessDetails businessDetails) {
+		this.businessDetails = businessDetails;
 	}
 
 }

@@ -48,4 +48,9 @@ public class MemberProfileDAO implements IMemberProfileDAO {
 		return servicesRepository.findAll();
 	}
 
+	@Override
+	public MemberEntity findByMemberId(long memberId) {
+		return memberRepository.findByMemberId(memberId);
+	}
+
 }
