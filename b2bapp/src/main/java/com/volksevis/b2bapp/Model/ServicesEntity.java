@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.volksevis.b2bapp.view.ServiceDetails;
 
 @JsonIgnoreProperties(ignoreUnknown = true, allowGetters = true)
 @Document(collection = "Services")

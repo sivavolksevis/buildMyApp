@@ -29,4 +29,9 @@ public interface IMemberProfileDAO {
 	 */
 	public List<ServicesEntity> getServices();
 
+	/**
+	 * @return MemberEntity
+	 */
+	public MemberEntity findByMemberId(long memberId);
+
 }

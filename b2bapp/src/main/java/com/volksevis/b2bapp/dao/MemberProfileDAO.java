@@ -3,6 +3,7 @@ package com.volksevis.b2bapp.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.volksevis.b2bapp.Model.CityEntity;
@@ -24,9 +25,12 @@ public class MemberProfileDAO implements IMemberProfileDAO {
 	@Autowired
 	ServicesRepository servicesRepository;
 
+	@Autowired
+	MongoTemplate mongoTemplate;
+
 	@Override
 	public void saveMemberEntityObject(MemberEntity memberEntity) {
-		memberRepository.save(memberEntity);
+		mongoTemplate.save(memberEntity);
 	}
 
 	@Override
@@ -42,6 +46,11 @@ public class MemberProfileDAO implements IMemberProfileDAO {
 	@Override
 	public List<ServicesEntity> getServices() {
 		return servicesRepository.findAll();
+	}
+
+	@Override
+	public MemberEntity findByMemberId(long memberId) {
+		return memberRepository.findByMemberId(memberId);
 	}
 
 }

@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.volksevis.b2bapp.Model.MemberEntity;
 import com.volksevis.b2bapp.exception.MemberNotFoundException;
 import com.volksevis.b2bapp.exception.MemberProfileException;
 import com.volksevis.b2bapp.exception.VolksevisException;
 import com.volksevis.b2bapp.helper.MemberProfileHelper;
 import com.volksevis.b2bapp.service.IMemberProfileService;
+import com.volksevis.b2bapp.view.UserDetails;
 
 @RestController
 @RequestMapping("/volksevis/api/")
@@ -59,4 +61,19 @@ public class MemberProfileController {
 		JSONObject response = memberProfileService.getServices();
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
+
+	@PostMapping("/saveMemberInfo")
+	public ResponseEntity<String> saveMemberInfo(@RequestBody UserDetails userDetails) throws VolksevisException {
+		log.info("In saveMemberInfo method ");
+		JSONObject response = memberProfileService.saveMemberInfo(userDetails);
+		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+	}
+
+	@PostMapping("/saveBusinessInfo")
+	public ResponseEntity<String> saveBusinessInfo(@RequestBody MemberEntity memberEntity) throws VolksevisException {
+		log.info("In saveBusinessInfo method ");
+		JSONObject response = memberProfileService.saveBusinessInfo(memberEntity);
+		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+	}
+
 }
