@@ -29,7 +29,7 @@ public class VolksevisExceptionHandler {
 	public ResponseEntity<ErrorResponseEntity> exceptionMemberProfileHandler(Exception exception) {
 		ErrorResponseEntity error = new ErrorResponseEntity();
 		error.setSuccess(false);
-		error.setStatusCode(HttpStatus.NOT_FOUND.value());
+		error.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 		error.setError(exception.getMessage());
 		MultiValueMap<String, String> errorResponseMessage = new LinkedMultiValueMap<>();
 		errorResponseMessage.add("errorMessage", exception.getMessage());
