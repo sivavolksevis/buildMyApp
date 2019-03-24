@@ -23,6 +23,14 @@ public class DocumentDetails {
 	private String bankPassbook;
 	private String businessRegistrationForm;
 
+	public Object getId() {
+		return id;
+	}
+
+	public void setId(Object id) {
+		this.id = id;
+	}
+
 	public Long getMemberId() {
 		return memberId;
 	}
