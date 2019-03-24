@@ -1,6 +1,7 @@
 package com.volksevis.b2bapp.service;
 
 import org.json.JSONObject;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.volksevis.b2bapp.Model.MemberEntity;
 import com.volksevis.b2bapp.exception.MemberNotFoundException;
@@ -50,5 +51,14 @@ public interface IMemberProfileService {
 	 * @throws VolksevisException
 	 */
 	public JSONObject saveBusinessInfo(MemberEntity memberEntity) throws VolksevisException;
+
+	/**
+	 * @param memberAccountDetailsView
+	 * @param uploadedFile
+	 * @return
+	 * @throws VolksevisException
+	 */
+	public JSONObject uploadMemberAccountsAndDocuments(String memberAccountDetailsView, MultipartFile[] uploadedFile)
+			throws VolksevisException;
 
 }
