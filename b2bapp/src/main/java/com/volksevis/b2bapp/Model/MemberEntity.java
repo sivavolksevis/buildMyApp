@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.volksevis.b2bapp.service.MemberAccountDetails;
 import com.volksevis.b2bapp.view.BusinessDetails;
 
 @JsonIgnoreProperties(ignoreUnknown = true, allowGetters = true)
@@ -36,6 +37,7 @@ public class MemberEntity {
 	private String qualification;
 	private String otherQualifications;
 	private BusinessDetails businessDetails;
+	private MemberAccountDetails memberAccountDetails;
 
 	public Object getId() {
 		return id;
@@ -163,6 +165,14 @@ public class MemberEntity {
 
 	public void setBusinessDetails(BusinessDetails businessDetails) {
 		this.businessDetails = businessDetails;
+	}
+
+	public MemberAccountDetails getMemberAccountDetails() {
+		return memberAccountDetails;
+	}
+
+	public void setMemberAccountDetails(MemberAccountDetails memberAccountDetails) {
+		this.memberAccountDetails = memberAccountDetails;
 	}
 
 }

@@ -1,5 +1,13 @@
 package com.volksevis.b2bapp.service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -11,9 +19,12 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volksevis.b2bapp.Model.CityEntity;
+import com.volksevis.b2bapp.Model.DocumentDetails;
 import com.volksevis.b2bapp.Model.MemberEntity;
 import com.volksevis.b2bapp.Model.ServicesEntity;
 import com.volksevis.b2bapp.controller.MemberProfileController;
@@ -42,6 +53,9 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 
 	@Value("volksevis.otp.message")
 	private String OTP_MESSAGE_BODY;
+
+	@Value("${member.documents.path}")
+	private String documentUploadPath;
 
 	@Override
 	public JSONObject memberRegistration(String mobileNumber) throws MemberProfileException {
@@ -195,6 +209,77 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 		}
 		log.info("In saveBusinessInfo method Ended");
 		return responsObject;
+	}
+
+	@Override
+	public JSONObject uploadMemberAccountsAndDocuments(String memberDetails, MultipartFile[] uploadedFile)
+			throws VolksevisException {
+		log.info("In uploadMemberDocuments method Started");
+		JSONObject responsObject = null;
+		try {
+			MemberAccountDetailsView memberAccountDetailsView = objectMapper.readValue(memberDetails,
+					new TypeReference<MemberAccountDetailsView>() {
+					});
+			Long memberId = memberAccountDetailsView.getMemberId();
+			List<String> filesList = uploadMemberDocuments(uploadedFile);
+			saveDocumentDetails(filesList, memberId);
+			MemberEntity memberEntity = memberProfileDAO.findByMemberId(memberId);
+			if (memberEntity == null) {
+				throw new VolksevisException("Invalid Request Details");
+			}
+			MemberAccountDetails memberAccountDetails = new MemberAccountDetails();
+			BeanUtils.copyProperties(memberAccountDetailsView, memberAccountDetails);
+			memberEntity.setMemberAccountDetails(memberAccountDetails);
+			memberProfileDAO.saveMemberEntityObject(memberEntity);
+			responsObject = new JSONObject();
+			responsObject.put("success", true);
+			responsObject.put("statusCode", 200);
+			JSONObject response = new JSONObject();
+			response.put("message", "Document Details Saved Succesfully");
+			responsObject.put("message", response);
+		} catch (Exception exception) {
+			throw new VolksevisException(exception.getMessage());
+		}
+		log.info("In uploadMemberDocuments method Ended");
+		return responsObject;
+	}
+
+	private void saveDocumentDetails(List<String> filesList, Long memberId) throws VolksevisException {
+		log.info("In saveDocumentDetails method Started");
+		if (filesList.size() < 7) {
+			throw new VolksevisException("Please upload Documents");
+		}
+		DocumentDetails persistedDocument = memberProfileDAO.findByMemberIdFromDocuments(memberId);
+		if (persistedDocument == null) {
+			persistedDocument = new DocumentDetails();
+		}
+		persistedDocument.setMemberId(memberId);
+		persistedDocument.setPanCard(filesList.get(0));
+		persistedDocument.setVoterId(filesList.get(1));
+		persistedDocument.setDrivingLicense(filesList.get(2));
+		persistedDocument.setAadharCard(filesList.get(3));
+		persistedDocument.setCancelledCheque(filesList.get(4));
+		persistedDocument.setBankPassbook(filesList.get(5));
+		persistedDocument.setBusinessRegistrationForm(filesList.get(6));
+		memberProfileDAO.saveObject(persistedDocument);
+		log.info("In saveDocumentDetails method Ended");
+	}
+
+	private List<String> uploadMemberDocuments(MultipartFile[] uploadedFile) throws IOException {
+		log.info("In uploadMemberDocuments method Started");
+		List<String> documentList = new ArrayList<>();
+		List<MultipartFile> filesList = Arrays.asList(uploadedFile);
+		for (MultipartFile multipartFile : filesList) {
+			byte[] file = multipartFile.getBytes();
+			String[] filename = multipartFile.getOriginalFilename().split("\\.");
+			String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+			String generatedFileName = filename[0] + B2bAppConstants.UNDERSCORE + timeStamp + "." + filename[1];
+			Path path = Paths.get(documentUploadPath + "//" + generatedFileName);
+			Files.write(path, file);
+			documentList.add(generatedFileName);
+		}
+		log.info("In uploadMemberDocuments method Ended");
+		return documentList;
 	}
 
 }
