@@ -246,7 +246,7 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 
 	private void saveDocumentDetails(List<String> filesList, Long memberId) throws VolksevisException {
 		log.info("In saveDocumentDetails method Started");
-		if (filesList.size() < 7) {
+		if (filesList.isEmpty()) {
 			throw new VolksevisException("Please upload Documents");
 		}
 		DocumentDetails persistedDocument = memberProfileDAO.findByMemberIdFromDocuments(memberId);
@@ -254,13 +254,15 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 			persistedDocument = new DocumentDetails();
 		}
 		persistedDocument.setMemberId(memberId);
-		persistedDocument.setPanCard(filesList.get(0));
-		persistedDocument.setVoterId(filesList.get(1));
-		persistedDocument.setDrivingLicense(filesList.get(2));
-		persistedDocument.setAadharCard(filesList.get(3));
-		persistedDocument.setCancelledCheque(filesList.get(4));
-		persistedDocument.setBankPassbook(filesList.get(5));
-		persistedDocument.setBusinessRegistrationForm(filesList.get(6));
+		for (String fileName : filesList) {
+			if (fileName.contains("pass")) {
+				persistedDocument.setPanCard(fileName);
+			} else if (fileName.contains("id")) {
+				persistedDocument.setIdCard(fileName);
+			} else {
+				persistedDocument.setBusinessRegistrationForm(fileName);
+			}
+		}
 		memberProfileDAO.saveObject(persistedDocument);
 		log.info("In saveDocumentDetails method Ended");
 	}

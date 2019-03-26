@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,7 @@ import com.volksevis.b2bapp.helper.MemberProfileHelper;
 import com.volksevis.b2bapp.service.IMemberProfileService;
 import com.volksevis.b2bapp.view.UserDetails;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/volksevis/api/")
 public class MemberProfileController {
@@ -79,10 +81,10 @@ public class MemberProfileController {
 	}
 
 	@PostMapping(path = "/uploadMemberAccountsAndDocuments", consumes = "multipart/form-data")
-	public ResponseEntity<String> uploadMemberAccountsAndDocuments(@RequestParam String memberAccountDetailsView,
+	public ResponseEntity<String> uploadMemberAccountsAndDocuments(@RequestParam String businessAccountDetails,
 			@RequestParam("uploadedFile") MultipartFile[] uploadedFile) throws VolksevisException {
 		log.info("In uploadMemberAccountsAndDocuments  - Method Started");
-		JSONObject response = memberProfileService.uploadMemberAccountsAndDocuments(memberAccountDetailsView,
+		JSONObject response = memberProfileService.uploadMemberAccountsAndDocuments(businessAccountDetails,
 				uploadedFile);
 		log.info("In uploadMemberAccountsAndDocuments  - Method Ended");
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
