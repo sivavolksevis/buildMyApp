@@ -177,7 +177,8 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 			responsObject.put("statusCode", 200);
 			JSONObject response = new JSONObject();
 			response.put("message", "Valid Request");
-			responsObject.put("response", new JSONObject(memberEntity));
+			String member = objectMapper.writeValueAsString(memberEntity);
+			responsObject.put("response", member);
 		} catch (Exception exception) {
 			throw new VolksevisException(exception.getMessage());
 		}
