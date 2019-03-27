@@ -9,6 +9,7 @@ public class MemberAccountDetailsView {
 	private String referenceName;
 	private String referenceMobile;
 	private String referenceRelationship;
+	private String mpesaTinNumber;
 
 	public Long getMemberId() {
 		return memberId;
@@ -64,6 +65,14 @@ public class MemberAccountDetailsView {
 
 	public void setReferenceRelationship(String referenceRelationship) {
 		this.referenceRelationship = referenceRelationship;
+	}
+
+	public String getMpesaTinNumber() {
+		return mpesaTinNumber;
+	}
+
+	public void setMpesaTinNumber(String mpesaTinNumber) {
+		this.mpesaTinNumber = mpesaTinNumber;
 	}
 
 }

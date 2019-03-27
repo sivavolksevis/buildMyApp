@@ -53,12 +53,12 @@ public interface IMemberProfileService {
 	public JSONObject saveBusinessInfo(MemberEntity memberEntity) throws VolksevisException;
 
 	/**
-	 * @param memberAccountDetailsView
+	 * @param businessAccountDetails
 	 * @param uploadedFile
 	 * @return
 	 * @throws VolksevisException
 	 */
-	public JSONObject uploadMemberAccountsAndDocuments(String memberAccountDetailsView, MultipartFile[] uploadedFile)
+	public JSONObject uploadMemberAccountsAndDocuments(String businessAccountDetails, MultipartFile[] uploadedFile)
 			throws VolksevisException;
 
 }

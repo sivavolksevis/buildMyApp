@@ -15,12 +15,8 @@ public class DocumentDetails {
 	@Field(value = "_id")
 	private Object id;
 	private Long memberId;
-	private String panCard;
-	private String voterId;
-	private String drivingLicense;
-	private String aadharCard;
-	private String cancelledCheque;
-	private String bankPassbook;
+	private String passport;
+	private String idCard;
 	private String businessRegistrationForm;
 
 	public Object getId() {
@@ -40,51 +36,11 @@ public class DocumentDetails {
 	}
 
 	public String getPanCard() {
-		return panCard;
+		return passport;
 	}
 
 	public void setPanCard(String panCard) {
-		this.panCard = panCard;
-	}
-
-	public String getVoterId() {
-		return voterId;
-	}
-
-	public void setVoterId(String voterId) {
-		this.voterId = voterId;
-	}
-
-	public String getDrivingLicense() {
-		return drivingLicense;
-	}
-
-	public void setDrivingLicense(String drivingLicense) {
-		this.drivingLicense = drivingLicense;
-	}
-
-	public String getAadharCard() {
-		return aadharCard;
-	}
-
-	public void setAadharCard(String aadharCard) {
-		this.aadharCard = aadharCard;
-	}
-
-	public String getCancelledCheque() {
-		return cancelledCheque;
-	}
-
-	public void setCancelledCheque(String cancelledCheque) {
-		this.cancelledCheque = cancelledCheque;
-	}
-
-	public String getBankPassbook() {
-		return bankPassbook;
-	}
-
-	public void setBankPassbook(String bankPassbook) {
-		this.bankPassbook = bankPassbook;
+		this.passport = panCard;
 	}
 
 	public String getBusinessRegistrationForm() {
@@ -93,6 +49,14 @@ public class DocumentDetails {
 
 	public void setBusinessRegistrationForm(String businessRegistrationForm) {
 		this.businessRegistrationForm = businessRegistrationForm;
+	}
+
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
 	}
 
 }

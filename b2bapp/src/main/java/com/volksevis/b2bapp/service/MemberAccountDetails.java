@@ -8,6 +8,7 @@ public class MemberAccountDetails {
 	private String referenceName;
 	private String referenceMobile;
 	private String referenceRelationship;
+	private String mpesaTinNumber;
 
 	public String getAccountNumber() {
 		return accountNumber;
@@ -55,6 +56,14 @@ public class MemberAccountDetails {
 
 	public void setReferenceRelationship(String referenceRelationship) {
 		this.referenceRelationship = referenceRelationship;
+	}
+
+	public String getMpesaTinNumber() {
+		return mpesaTinNumber;
+	}
+
+	public void setMpesaTinNumber(String mpesaTinNumber) {
+		this.mpesaTinNumber = mpesaTinNumber;
 	}
 
 }

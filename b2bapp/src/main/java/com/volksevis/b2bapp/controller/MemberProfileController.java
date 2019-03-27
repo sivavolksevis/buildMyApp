@@ -23,7 +23,7 @@ import com.volksevis.b2bapp.helper.MemberProfileHelper;
 import com.volksevis.b2bapp.service.IMemberProfileService;
 import com.volksevis.b2bapp.view.UserDetails;
 
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/volksevis/api/")
 public class MemberProfileController {
@@ -81,10 +81,10 @@ public class MemberProfileController {
 	}
 
 	@PostMapping(path = "/uploadMemberAccountsAndDocuments", consumes = "multipart/form-data")
-	public ResponseEntity<String> uploadMemberAccountsAndDocuments(@RequestParam String memberAccountDetailsView,
+	public ResponseEntity<String> uploadMemberAccountsAndDocuments(@RequestParam String businessAccountDetails,
 			@RequestParam("uploadedFile") MultipartFile[] uploadedFile) throws VolksevisException {
 		log.info("In uploadMemberAccountsAndDocuments  - Method Started");
-		JSONObject response = memberProfileService.uploadMemberAccountsAndDocuments(memberAccountDetailsView,
+		JSONObject response = memberProfileService.uploadMemberAccountsAndDocuments(businessAccountDetails,
 				uploadedFile);
 		log.info("In uploadMemberAccountsAndDocuments  - Method Ended");
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
