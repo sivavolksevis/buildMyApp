@@ -7,10 +7,12 @@ public class BusinessDetails {
 	private String businessName;
 	private String businessType;
 	private String businessDescription;
-	private List<String> timeSlots;
-	private List<String> weekHolidays;
-	private List<String> langugaes;
+	private List<TimeSlot> timeSlots;
+	private List<WeekHoliday> weekHolidays;
+	private List<Languages> langugaes;
 	private String buisnessAddress;
+	private String teamSize;
+	private String businessStartYear;
 
 	public String getBusinessName() {
 		return businessName;
@@ -36,27 +38,27 @@ public class BusinessDetails {
 		this.businessDescription = businessDescription;
 	}
 
-	public List<String> getTimeSlots() {
+	public List<TimeSlot> getTimeSlots() {
 		return timeSlots;
 	}
 
-	public void setTimeSlots(List<String> timeSlots) {
+	public void setTimeSlots(List<TimeSlot> timeSlots) {
 		this.timeSlots = timeSlots;
 	}
 
-	public List<String> getWeekHolidays() {
+	public List<WeekHoliday> getWeekHolidays() {
 		return weekHolidays;
 	}
 
-	public void setWeekHolidays(List<String> weekHolidays) {
+	public void setWeekHolidays(List<WeekHoliday> weekHolidays) {
 		this.weekHolidays = weekHolidays;
 	}
 
-	public List<String> getLangugaes() {
+	public List<Languages> getLangugaes() {
 		return langugaes;
 	}
 
-	public void setLangugaes(List<String> langugaes) {
+	public void setLangugaes(List<Languages> langugaes) {
 		this.langugaes = langugaes;
 	}
 
@@ -66,6 +68,22 @@ public class BusinessDetails {
 
 	public void setBuisnessAddress(String buisnessAddress) {
 		this.buisnessAddress = buisnessAddress;
+	}
+
+	public String getTeamSize() {
+		return teamSize;
+	}
+
+	public void setTeamSize(String teamSize) {
+		this.teamSize = teamSize;
+	}
+
+	public String getBusinessStartYear() {
+		return businessStartYear;
+	}
+
+	public void setBusinessStartYear(String businessStartYear) {
+		this.businessStartYear = businessStartYear;
 	}
 
 }

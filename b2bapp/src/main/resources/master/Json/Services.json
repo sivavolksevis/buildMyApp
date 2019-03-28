@@ -1,4 +1,8 @@
 {
+
+"ServicesArray" : [
+
+{
 	"categoryId": 1,
 	"categoryName": "Home Maintenance",
 	"services": [
@@ -223,7 +227,7 @@
 			]
 		}
 	]
-}
+},
 {
 	"categoryId": 2,
 	"categoryName": "Cleaning Services",
@@ -473,7 +477,7 @@
 			]
 		}
 	]
-}
+},
 {
   "categoryId": 3,
   "categoryName": "Document Services",
@@ -594,7 +598,7 @@
       "subServices": []
     }
   ]
-}
+},
 {
 	"categoryId": 4,
 	"categoryName": "Events & Occasions",
@@ -779,8 +783,7 @@
 			"subServices": []
 		}
 	]
-}
-
+},
 {
   "categoryId": 5,
   "categoryName": "Automobile Services",
@@ -918,7 +921,7 @@
       ]
     }
   ]
-}
+},
 {
   "categoryId": 6,
   "categoryName": "Health & Personal",
@@ -1200,7 +1203,7 @@
       ]
     }
   ]
-}
+},
 {
   "categoryId": 7,
   "categoryName": "Electronics & Appliances",
@@ -1480,7 +1483,7 @@
       "subServices": []
     }
   ]
-}
+},
 {
   "categoryId": 8,
   "categoryName": "Photography Services",
@@ -1651,4 +1654,5 @@
       ]
     }
   ]
+}]
 }
