@@ -4,7 +4,7 @@ public class Languages {
 
 	private int langID;
 	private boolean checked;
-	private boolean langName;
+	private String langName;
 
 	public int getLangID() {
 		return langID;
@@ -22,11 +22,11 @@ public class Languages {
 		this.checked = checked;
 	}
 
-	public boolean isLangName() {
+	public String isLangName() {
 		return langName;
 	}
 
-	public void setLangName(boolean langName) {
+	public void setLangName(String langName) {
 		this.langName = langName;
 	}
 
