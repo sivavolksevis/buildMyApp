@@ -1,13 +1,17 @@
 package com.volksevis.b2bapp.Model;
 
+import java.util.List;
+
 import javax.persistence.Id;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.volksevis.b2bapp.service.MemberAccountDetails;
 import com.volksevis.b2bapp.view.BusinessDetails;
+import com.volksevis.b2bapp.view.ServicesOffered;
 
 @JsonIgnoreProperties(ignoreUnknown = true, allowGetters = true)
 @Document(collection = "Members")
@@ -15,7 +19,7 @@ public class MemberEntity {
 
 	@Id
 	@Field(value = "_id")
-	private Object id;
+	private ObjectId id;
 	@Field(value = "memberId")
 	private Long memberId;
 	@Field(value = "mobileNumber")
@@ -38,12 +42,13 @@ public class MemberEntity {
 	private String otherQualifications;
 	private BusinessDetails businessDetails;
 	private MemberAccountDetails memberAccountDetails;
+	private List<ServicesOffered> servicesOffered;
 
-	public Object getId() {
+	public ObjectId getId() {
 		return id;
 	}
 
-	public void setId(Object id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 
@@ -173,6 +178,14 @@ public class MemberEntity {
 
 	public void setMemberAccountDetails(MemberAccountDetails memberAccountDetails) {
 		this.memberAccountDetails = memberAccountDetails;
+	}
+
+	public List<ServicesOffered> getServicesOffered() {
+		return servicesOffered;
+	}
+
+	public void setServicesOffered(List<ServicesOffered> servicesOffered) {
+		this.servicesOffered = servicesOffered;
 	}
 
 }

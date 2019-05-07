@@ -11,8 +11,9 @@ public interface IMemberProfileDAO {
 
 	/**
 	 * @param memberEntity
+	 * @return
 	 */
-	public void saveMemberEntityObject(MemberEntity memberEntity);
+	public MemberEntity saveMemberEntityObject(MemberEntity memberEntity);
 
 	/**
 	 * @param mobile

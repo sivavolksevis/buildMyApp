@@ -2,6 +2,7 @@ package com.volksevis.b2bapp.exception;
 
 import java.net.UnknownHostException;
 
+import org.json.JSONException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
@@ -25,7 +26,7 @@ public class VolksevisExceptionHandler {
 		return new ResponseEntity<ErrorResponseEntity>(error, errorResponseMessage, HttpStatus.NOT_FOUND);
 	}
 
-	@ExceptionHandler({ MemberProfileException.class, VolksevisException.class })
+	@ExceptionHandler({ MemberProfileException.class, VolksevisException.class, JSONException.class })
 	public ResponseEntity<ErrorResponseEntity> exceptionMemberProfileHandler(Exception exception) {
 		ErrorResponseEntity error = new ErrorResponseEntity();
 		error.setSuccess(false);

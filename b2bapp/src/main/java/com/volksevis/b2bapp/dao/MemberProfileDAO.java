@@ -32,8 +32,8 @@ public class MemberProfileDAO implements IMemberProfileDAO {
 	MongoTemplate mongoTemplate;
 
 	@Override
-	public void saveMemberEntityObject(MemberEntity memberEntity) {
-		mongoTemplate.save(memberEntity);
+	public MemberEntity saveMemberEntityObject(MemberEntity memberEntity) {
+		return mongoTemplate.save(memberEntity);
 	}
 
 	@Override

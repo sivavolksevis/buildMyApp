@@ -1,12 +1,15 @@
 package com.volksevis.b2bapp.service;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.volksevis.b2bapp.Model.MemberEntity;
 import com.volksevis.b2bapp.exception.MemberNotFoundException;
 import com.volksevis.b2bapp.exception.MemberProfileException;
 import com.volksevis.b2bapp.exception.VolksevisException;
+import com.volksevis.b2bapp.view.SubServiceView;
 import com.volksevis.b2bapp.view.UserDetails;
 
 public interface IMemberProfileService {
@@ -60,5 +63,16 @@ public interface IMemberProfileService {
 	 */
 	public JSONObject uploadMemberAccountsAndDocuments(String businessAccountDetails, MultipartFile[] uploadedFile)
 			throws VolksevisException;
+
+	/**
+	 * @param serviceView
+	 * @return JSONObject
+	 * @throws JSONException
+	 * @throws VolksevisException
+	 * @throws MemberNotFoundException
+	 * @throws JsonProcessingException
+	 */
+	public JSONObject saveSubService(SubServiceView serviceView)
+			throws JSONException, VolksevisException, MemberNotFoundException, JsonProcessingException;
 
 }

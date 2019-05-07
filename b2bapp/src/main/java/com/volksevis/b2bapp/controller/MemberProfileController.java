@@ -1,5 +1,6 @@
 package com.volksevis.b2bapp.controller;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.volksevis.b2bapp.Model.MemberEntity;
 import com.volksevis.b2bapp.exception.MemberNotFoundException;
 import com.volksevis.b2bapp.exception.MemberProfileException;
 import com.volksevis.b2bapp.exception.VolksevisException;
 import com.volksevis.b2bapp.helper.MemberProfileHelper;
 import com.volksevis.b2bapp.service.IMemberProfileService;
+import com.volksevis.b2bapp.view.SubServiceView;
 import com.volksevis.b2bapp.view.UserDetails;
 
 @CrossOrigin(origins = "*")
@@ -87,6 +90,19 @@ public class MemberProfileController {
 		JSONObject response = memberProfileService.uploadMemberAccountsAndDocuments(businessAccountDetails,
 				uploadedFile);
 		log.info("In uploadMemberAccountsAndDocuments  - Method Ended");
+		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+	}
+
+	@PostMapping(path = "/saveSubService")
+	public ResponseEntity<String> saveSubService(@RequestBody SubServiceView serviceView)
+			throws JSONException, VolksevisException, MemberNotFoundException {
+		log.info("In saveSubService  - Method Started");
+		JSONObject response;
+		try {
+			response = memberProfileService.saveSubService(serviceView);
+		} catch (JsonProcessingException exception) {
+			throw new VolksevisException(exception.getMessage());
+		}
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
 
