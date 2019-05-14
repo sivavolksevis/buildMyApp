@@ -298,6 +298,7 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 	@Override
 	public JSONObject saveSubService(SubServiceView serviceView)
 			throws JSONException, VolksevisException, MemberNotFoundException, JsonProcessingException {
+		log.info("In saveSubService method Started");
 		if (serviceView != null && serviceView.getServiceId() != null) {
 			Long memberId = serviceView.getMemberId();
 			MemberEntity member = memberProfileDAO.findByMemberId(memberId);
@@ -322,11 +323,59 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 				String resultString = objectMapper.writeValueAsString(servicesOffered);
 				responsObject.put("servicesOffered", new JSONArray(resultString));
 			}
+			log.info("In saveSubService method Ended");
 			return responsObject;
 		} else {
 			throw new VolksevisException("Unable to save Services");
 		}
 
+	}
+
+	@Override
+	public JSONObject deleteSubService(SubServiceView serviceView) throws JSONException, JsonProcessingException {
+		log.info("In deleteSubService method Started");
+		Long memberId = serviceView.getMemberId();
+		MemberEntity memberEntity = memberProfileDAO.findByMemberId(memberId);
+		List<ServicesOffered> servicesOffered = memberEntity.getServicesOffered();
+		if (servicesOffered != null) {
+			for (int i = 0, size = servicesOffered.size(); i < size; i++) {
+				Long serviceId = servicesOffered.get(i).getServiceId();
+				String subServiceName = servicesOffered.get(i).getSubService().getSubServiceName();
+				Long serviceId2 = serviceView.getServiceId();
+				if (String.valueOf(serviceId).equalsIgnoreCase(String.valueOf(serviceId2))) {
+					if (subServiceName.equalsIgnoreCase(serviceView.getSubService().getSubServiceName())) {
+						servicesOffered.remove(servicesOffered.get(i));
+						break;
+					}
+				}
+			}
+		}
+		memberEntity.setServicesOffered(servicesOffered);
+		memberProfileDAO.saveMemberEntityObject(memberEntity);
+		JSONObject responsObject = new JSONObject();
+		responsObject.put("success", true);
+		responsObject.put("statusCode", 200);
+		if (servicesOffered != null) {
+			String resultString = objectMapper.writeValueAsString(servicesOffered);
+			responsObject.put("servicesOffered", new JSONArray(resultString));
+		}
+		log.info("In deleteSubService method Ended");
+		return responsObject;
+	}
+
+	@Override
+	public JSONObject getMemberDetails(long memberId) throws JSONException, JsonProcessingException {
+		log.info("In getMemberDetails method Started");
+		MemberEntity member = memberProfileDAO.findByMemberId(memberId);
+		JSONObject responsObject = new JSONObject();
+		responsObject.put("success", true);
+		responsObject.put("statusCode", 200);
+		if (member != null) {
+			String resultString = objectMapper.writeValueAsString(member);
+			responsObject.put("memberDetails", new JSONObject(resultString));
+		}
+		log.info("In deleteSubService method Ended");
+		return responsObject;
 	}
 
 }

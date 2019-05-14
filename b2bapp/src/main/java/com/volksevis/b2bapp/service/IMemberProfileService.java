@@ -75,4 +75,20 @@ public interface IMemberProfileService {
 	public JSONObject saveSubService(SubServiceView serviceView)
 			throws JSONException, VolksevisException, MemberNotFoundException, JsonProcessingException;
 
+	/**
+	 * @param serviceView
+	 * @return
+	 * @throws JSONException
+	 * @throws JsonProcessingException
+	 */
+	public JSONObject deleteSubService(SubServiceView serviceView) throws JSONException, JsonProcessingException;
+
+	/**
+	 * @param memberId
+	 * @return JSONObject
+	 * @throws JSONException
+	 * @throws JsonProcessingException
+	 */
+	public JSONObject getMemberDetails(long memberId) throws JSONException, JsonProcessingException;
+
 }

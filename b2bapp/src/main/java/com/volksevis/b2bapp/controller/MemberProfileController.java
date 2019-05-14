@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,6 +70,14 @@ public class MemberProfileController {
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
 
+	@GetMapping("/getMemberDetails/{memberId}")
+	public ResponseEntity<String> getMemberDetails(@PathVariable long memberId)
+			throws VolksevisException, JsonProcessingException, JSONException {
+		log.info("In getMemberDetails method ");
+		JSONObject response = memberProfileService.getMemberDetails(memberId);
+		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+	}
+
 	@PostMapping("/saveMemberInfo")
 	public ResponseEntity<String> saveMemberInfo(@RequestBody UserDetails userDetails) throws VolksevisException {
 		log.info("In saveMemberInfo method ");
@@ -103,6 +112,17 @@ public class MemberProfileController {
 		} catch (JsonProcessingException exception) {
 			throw new VolksevisException(exception.getMessage());
 		}
+		log.info("In saveSubService  - Method Ended");
+		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+	}
+
+	@PostMapping(path = "/deleteSubService")
+	public ResponseEntity<String> deleteSubService(@RequestBody SubServiceView serviceView)
+			throws JSONException, VolksevisException, MemberNotFoundException, JsonProcessingException {
+		log.info("In deleteSubService  - Method Started");
+		JSONObject response;
+		response = memberProfileService.deleteSubService(serviceView);
+		log.info("In deleteSubService  - Method Ended");
 		return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 	}
 
