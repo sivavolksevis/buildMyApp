@@ -8,4 +8,6 @@ import com.volksevis.b2bapp.Model.ServicesEntity;
 @Repository
 public interface ServicesRepository extends MongoRepository<ServicesEntity, Long> {
 
+	public ServicesEntity findByCategoryId(Long category);
+
 }

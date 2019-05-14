@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,12 +22,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volksevis.b2bapp.Model.CityEntity;
 import com.volksevis.b2bapp.Model.DocumentDetails;
 import com.volksevis.b2bapp.Model.MemberEntity;
 import com.volksevis.b2bapp.Model.ServicesEntity;
+import com.volksevis.b2bapp.Repository.MemberRepository;
+import com.volksevis.b2bapp.Repository.ServicesRepository;
 import com.volksevis.b2bapp.controller.MemberProfileController;
 import com.volksevis.b2bapp.dao.IMemberProfileDAO;
 import com.volksevis.b2bapp.exception.MemberNotFoundException;
@@ -35,6 +39,8 @@ import com.volksevis.b2bapp.exception.VolksevisException;
 import com.volksevis.b2bapp.helper.B2bAppConstants;
 import com.volksevis.b2bapp.util.ICommunicationUtility;
 import com.volksevis.b2bapp.util.VolksevisUtility;
+import com.volksevis.b2bapp.view.ServicesOffered;
+import com.volksevis.b2bapp.view.SubServiceView;
 import com.volksevis.b2bapp.view.UserDetails;
 
 @Service
@@ -44,6 +50,12 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 
 	@Autowired
 	IMemberProfileDAO memberProfileDAO;
+
+	@Autowired
+	MemberRepository memberRepository;
+
+	@Autowired
+	ServicesRepository servicesRepository;
 
 	@Autowired
 	ObjectMapper objectMapper;
@@ -175,8 +187,6 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 			responsObject = new JSONObject();
 			responsObject.put("success", true);
 			responsObject.put("statusCode", 200);
-			JSONObject response = new JSONObject();
-			response.put("message", "Valid Request");
 			String member = objectMapper.writeValueAsString(memberEntity);
 			responsObject.put("response", member);
 		} catch (Exception exception) {
@@ -283,6 +293,89 @@ public class MemberProfileServiceImpl implements IMemberProfileService {
 		}
 		log.info("In uploadMemberDocuments method Ended");
 		return documentList;
+	}
+
+	@Override
+	public JSONObject saveSubService(SubServiceView serviceView)
+			throws JSONException, VolksevisException, MemberNotFoundException, JsonProcessingException {
+		log.info("In saveSubService method Started");
+		if (serviceView != null && serviceView.getServiceId() != null) {
+			Long memberId = serviceView.getMemberId();
+			MemberEntity member = memberProfileDAO.findByMemberId(memberId);
+			if (member != null) {
+				List<ServicesOffered> servicesOffered = member.getServicesOffered();
+				if (servicesOffered == null) {
+					servicesOffered = new ArrayList<ServicesOffered>();
+				}
+				ServicesOffered serOffered = new ServicesOffered();
+				BeanUtils.copyProperties(serviceView, serOffered);
+				servicesOffered.add(serOffered);
+				member.setServicesOffered(servicesOffered);
+				memberProfileDAO.saveMemberEntityObject(member);
+			} else {
+				throw new MemberNotFoundException("Invalid Member");
+			}
+			JSONObject responsObject = new JSONObject();
+			responsObject.put("success", true);
+			responsObject.put("statusCode", 200);
+			List<ServicesOffered> servicesOffered = member.getServicesOffered();
+			if (servicesOffered != null) {
+				String resultString = objectMapper.writeValueAsString(servicesOffered);
+				responsObject.put("servicesOffered", new JSONArray(resultString));
+			}
+			log.info("In saveSubService method Ended");
+			return responsObject;
+		} else {
+			throw new VolksevisException("Unable to save Services");
+		}
+
+	}
+
+	@Override
+	public JSONObject deleteSubService(SubServiceView serviceView) throws JSONException, JsonProcessingException {
+		log.info("In deleteSubService method Started");
+		Long memberId = serviceView.getMemberId();
+		MemberEntity memberEntity = memberProfileDAO.findByMemberId(memberId);
+		List<ServicesOffered> servicesOffered = memberEntity.getServicesOffered();
+		if (servicesOffered != null) {
+			for (int i = 0, size = servicesOffered.size(); i < size; i++) {
+				Long serviceId = servicesOffered.get(i).getServiceId();
+				String subServiceName = servicesOffered.get(i).getSubService().getSubServiceName();
+				Long serviceId2 = serviceView.getServiceId();
+				if (String.valueOf(serviceId).equalsIgnoreCase(String.valueOf(serviceId2))) {
+					if (subServiceName.equalsIgnoreCase(serviceView.getSubService().getSubServiceName())) {
+						servicesOffered.remove(servicesOffered.get(i));
+						break;
+					}
+				}
+			}
+		}
+		memberEntity.setServicesOffered(servicesOffered);
+		memberProfileDAO.saveMemberEntityObject(memberEntity);
+		JSONObject responsObject = new JSONObject();
+		responsObject.put("success", true);
+		responsObject.put("statusCode", 200);
+		if (servicesOffered != null) {
+			String resultString = objectMapper.writeValueAsString(servicesOffered);
+			responsObject.put("servicesOffered", new JSONArray(resultString));
+		}
+		log.info("In deleteSubService method Ended");
+		return responsObject;
+	}
+
+	@Override
+	public JSONObject getMemberDetails(long memberId) throws JSONException, JsonProcessingException {
+		log.info("In getMemberDetails method Started");
+		MemberEntity member = memberProfileDAO.findByMemberId(memberId);
+		JSONObject responsObject = new JSONObject();
+		responsObject.put("success", true);
+		responsObject.put("statusCode", 200);
+		if (member != null) {
+			String resultString = objectMapper.writeValueAsString(member);
+			responsObject.put("memberDetails", new JSONObject(resultString));
+		}
+		log.info("In deleteSubService method Ended");
+		return responsObject;
 	}
 
 }

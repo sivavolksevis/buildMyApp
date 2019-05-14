@@ -1,10 +1,10 @@
 package com.volksevis.b2bapp.Model;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Id;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -17,20 +17,16 @@ public class ServicesEntity {
 
 	@Id
 	@Field(value = "_id")
-	private String id;
+	private ObjectId id;
 	private Long categoryId;
 	private String categoryName;
 	private List<ServiceDetails> services;
-	private Date createdDate;
-	private String createdUser;
-	private Date updatedDate;
-	private String updatedUser;
 
-	public String getId() {
+	public ObjectId getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 
@@ -48,38 +44,6 @@ public class ServicesEntity {
 
 	public void setServices(List<ServiceDetails> services) {
 		this.services = services;
-	}
-
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public String getCreatedUser() {
-		return createdUser;
-	}
-
-	public void setCreatedUser(String createdUser) {
-		this.createdUser = createdUser;
-	}
-
-	public Date getUpdatedDate() {
-		return updatedDate;
-	}
-
-	public void setUpdatedDate(Date updatedDate) {
-		this.updatedDate = updatedDate;
-	}
-
-	public String getUpdatedUser() {
-		return updatedUser;
-	}
-
-	public void setUpdatedUser(String updatedUser) {
-		this.updatedUser = updatedUser;
 	}
 
 	public Long getCategoryId() {
